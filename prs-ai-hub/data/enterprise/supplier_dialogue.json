@@ -1,0 +1,89 @@
+{
+  "records": [
+    {
+      "supplier_id": "SUP-0053",
+      "supplier_name": "Crestline IT Solutions",
+      "contact_date": "05/19/2026",
+      "message_id": "MSG-004",
+      "direction": "OUTBOUND",
+      "communication_type": "REQUEST_CORRECTION",
+      "summary": "First notice: 7 missing fields in May submission; completeness 41.3%",
+      "response_received": "NO",
+      "response_summary": "\u2014",
+      "dialogue_state": "FIRST_CONTACT"
+    },
+    {
+      "supplier_id": "SUP-0041",
+      "supplier_name": "Orion Logistics",
+      "contact_date": "05/19/2026",
+      "message_id": "MSG-006",
+      "direction": "OUTBOUND",
+      "communication_type": "REQUEST_CONFIRMATION",
+      "summary": "Payment ETA request for INV-OR-0526 ($198,400) \u2014 Run2 window closed",
+      "response_received": "NO",
+      "response_summary": "\u2014",
+      "dialogue_state": "FIRST_CONTACT"
+    },
+    {
+      "supplier_id": "SUP-0083",
+      "supplier_name": "GenX Corporation",
+      "contact_date": "04/18/2026",
+      "message_id": "MSG-PREV-01",
+      "direction": "OUTBOUND",
+      "communication_type": "REQUEST_CORRECTION",
+      "summary": "Previous period: GST certificate filename was generic (document.pdf)",
+      "response_received": "YES",
+      "response_summary": "Corrected file submitted 04/20",
+      "dialogue_state": "RESPONDED"
+    },
+    {
+      "supplier_id": "SUP-0029",
+      "supplier_name": "Vertex Managed Services",
+      "contact_date": "05/19/2026",
+      "message_id": "MSG-013",
+      "direction": "OUTBOUND",
+      "communication_type": "REQUEST_CLARIFICATION",
+      "summary": "Contract C-2023-029 has 12 ambiguity flags; requested written clarification",
+      "response_received": "NO",
+      "response_summary": "\u2014",
+      "dialogue_state": "FIRST_CONTACT"
+    },
+    {
+      "supplier_id": "SUP-0014",
+      "supplier_name": "ApexTech Distribution",
+      "contact_date": "05/15/2026",
+      "message_id": "MSG-009",
+      "direction": "OUTBOUND",
+      "communication_type": "PAYMENT_CONFIRMATION",
+      "summary": "Payment confirmation: INV-AT-0526 $148,500 ACH processed 05/14",
+      "response_received": "YES",
+      "response_summary": "Acknowledged receipt 05/15",
+      "dialogue_state": "RESPONDED"
+    },
+    {
+      "supplier_id": "SUP-0053",
+      "supplier_name": "Crestline IT Solutions",
+      "contact_date": "05/15/2026",
+      "message_id": "MSG-PREV-02",
+      "direction": "OUTBOUND",
+      "communication_type": "REQUEST_CORRECTION",
+      "summary": "Apr 2026: missing delivery_receipt_filename \u2014 second notice sent",
+      "response_received": "NO",
+      "response_summary": "\u2014",
+      "dialogue_state": "FOLLOW_UP"
+    },
+    {
+      "supplier_id": "SUP-0014",
+      "supplier_name": "ApexTech Distribution",
+      "contact_date": "05/19/2026",
+      "message_id": "MSG-012",
+      "direction": "OUTBOUND",
+      "communication_type": "REQUEST_CLARIFICATION",
+      "summary": "Invoice INV-AT-0526D $164,500 is 2.8% over ceiling; requested justification",
+      "response_received": "NO",
+      "response_summary": "\u2014",
+      "dialogue_state": "FIRST_CONTACT"
+    }
+  ],
+  "source": "supplier_interaction_inputFile_0519.xlsx"
+}

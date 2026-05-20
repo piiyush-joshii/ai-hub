@@ -1,0 +1,180 @@
+================================================================================
+MASTER SUPPLY AGREEMENT
+Contract No. : C-2024-001
+================================================================================
+
+PURPOSE OF THIS DOCUMENT
+This contract is submitted to the Contract Intelligence Agent for term
+extraction, normalisation, and indexing. All clauses are intentionally
+explicit and unambiguous. Expected extraction confidence: HIGH.
+
+CIA TEST SCENARIO : Clean extraction — all required fields present,
+                    no conflicting clauses, no missing definitions.
+                    CCR agent should receive a complete normalised term
+                    set with no ambiguity flags.
+
+================================================================================
+SECTION 1 — PARTIES
+================================================================================
+
+BUYER
+  Legal Name         : Northgate Enterprises LLC
+  Role               : Buyer / Procuring Entity
+  Address            : 500 Commerce Drive, Suite 300, Austin, Texas 78701
+  Registration No.   : NE-TX-2009-0041
+
+SUPPLIER
+  Legal Name         : ApexTech Distribution Inc.
+  Role               : Contracted Supplier
+  Supplier ID        : SUP-0014
+  Address            : 1200 Industrial Parkway, Denver, Colorado 80216
+  Registration No.   : AT-CO-2011-0178
+  Primary Contact    : contracts@apextech.com | 303-555-0192
+
+================================================================================
+SECTION 2 — AGREEMENT TERM
+================================================================================
+
+Effective Date       : 01/15/2024
+Expiry Date          : 01/14/2027
+Duration             : 36 months
+Auto-Renewal         : YES
+Renewal Notice Days  : 90 days written notice required from either party
+                       before expiry to prevent automatic renewal.
+                       If no notice is given, Agreement renews automatically
+                       for successive 12-month periods under the same terms.
+
+================================================================================
+SECTION 3 — SCOPE OF SUPPLY
+================================================================================
+
+Category             : GOODS
+Description          : Enterprise IT hardware including servers, networking
+                       equipment, workstations, and peripherals as listed in
+                       Exhibit A (Product Schedule). Supplier is the primary
+                       source. Buyer retains the right to source from
+                       alternate suppliers if Supplier cannot fulfil an order
+                       within the committed lead time.
+
+================================================================================
+SECTION 4 — PRICING AND CONTRACT VALUE
+================================================================================
+
+Total Contract Value : USD 4,800,000 (Four Million Eight Hundred Thousand
+                       Dollars) over the 36-month term.
+Currency             : USD
+Approved Invoice
+  Ceiling (Monthly)  : USD 160,000 per calendar month. Invoices exceeding
+                       this ceiling require prior written approval from
+                       Buyer's procurement manager before submission.
+
+Price Escalation     : Unit prices are fixed for the first 12 months.
+                       From Month 13 onward, prices may increase by no more
+                       than 2.5% annually, applied on the anniversary of the
+                       Effective Date. Supplier must submit a written price
+                       adjustment notice 45 days before the anniversary date.
+                       Price changes not communicated within this window are
+                       not enforceable for that year.
+
+================================================================================
+SECTION 5 — PAYMENT TERMS
+================================================================================
+
+Payment Due          : Net 30 days from date of a valid invoice.
+Early Payment
+  Discount           : 2.0% discount if payment is received within 10 days
+                       of invoice date.
+Late Payment
+  Penalty            : 1.5% per month (18.0% per annum) on all amounts
+                       outstanding beyond the Net 30 due date.
+Invoice Requirements : Each invoice must include: Contract Number C-2024-001,
+                       Purchase Order number, delivery confirmation reference,
+                       line-item breakdown, and the billing period.
+                       Invoices missing these fields will be returned unpaid
+                       and the payment clock resets on resubmission.
+Payment Method       : ACH electronic funds transfer to Supplier's
+                       designated US bank account on file with Buyer.
+
+================================================================================
+SECTION 6 — DELIVERY TERMS
+================================================================================
+
+Delivery Basis       : FOB Destination. Risk of loss transfers to Buyer
+                       upon confirmed delivery at Buyer's designated site.
+Standard Lead Time   : 5 business days from Purchase Order receipt for
+                       in-stock items.
+Priority Lead Time   : 2 business days for items flagged URGENT on the PO.
+Backorder Threshold  : Supplier must notify Buyer within 1 business day if
+                       any line item cannot be fulfilled within the standard
+                       lead time. Notification must include expected fulfilment
+                       date and quantity available.
+
+================================================================================
+SECTION 7 — SLA TERMS
+================================================================================
+
+Order Fill Rate      : Minimum 97% monthly, measured as units shipped
+                       divided by units ordered across all POs in the period.
+On-Time Delivery     : Minimum 95% of line items delivered within the
+                       committed window.
+Monthly Reporting    : Supplier must submit a performance report by the
+                       5th business day of each month covering the prior
+                       month's fill rate, on-time delivery, and any open
+                       backorders. Late or missing reports trigger an
+                       automatic escalation to the Exception Resolution Agent.
+SLA Breach Remedy    : If fill rate falls below 95% or on-time delivery
+                       falls below 90% in any single month, Buyer may apply
+                       a service credit of 2% of that month's invoice value.
+                       Two consecutive months of breach entitle Buyer to
+                       issue a formal cure notice.
+
+================================================================================
+SECTION 8 — DISPUTE RESOLUTION
+================================================================================
+
+Governing Law        : State of Texas
+Jurisdiction         : Travis County District Court, Austin, Texas; or the
+                       U.S. District Court for the Western District of Texas.
+Escalation Process   : (1) Account manager discussion within 5 business days.
+                       (2) Senior management escalation within 15 business
+                       days if unresolved. (3) Binding arbitration under AAA
+                       Commercial Rules if still unresolved after 30 days.
+
+================================================================================
+SECTION 9 — TERMINATION
+================================================================================
+
+Termination for
+  Convenience        : Either party may terminate with 60 days written notice.
+Termination for
+  Cause              : Immediate termination if either party: (a) materially
+                       breaches and fails to cure within 30 days of written
+                       notice; (b) becomes insolvent; (c) commits fraud.
+Notice Period        : 60 days (convenience) | Immediate (cause)
+
+================================================================================
+SECTION 10 — SPECIAL CLAUSES
+================================================================================
+
+Audit Rights         : Buyer may audit Supplier's records related to this
+                       Agreement once per calendar year with 10 business
+                       days written notice.
+Compliance           : Supplier must maintain all applicable federal, state,
+                       and local licences for the duration of this Agreement.
+Confidentiality      : Both parties agree to maintain the confidentiality of
+                       the other's proprietary information for 3 years
+                       following termination.
+
+================================================================================
+SIGNATURES
+================================================================================
+
+Northgate Enterprises LLC          ApexTech Distribution Inc.
+Signed : [Authorised Signatory]    Signed : [Authorised Signatory]
+Title  : VP Procurement            Title  : Director, National Accounts
+Date   : 01/10/2024                Date   : 01/12/2024
+
+================================================================================
+END OF AGREEMENT — C-2024-001
+CIA EXTRACTION NOTE: All fields present. Expect HIGH confidence score.
+================================================================================

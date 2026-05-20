@@ -1,0 +1,112 @@
+{
+  "description": "Enterprise test datasets synced from ai-hub/data/*.xlsx",
+  "pipeline_order": [
+    "intake_submissions",
+    "ccr_transactions",
+    "cash_invoices",
+    "exceptions_queue",
+    "supplier_messages",
+    "workflows_active",
+    "learning_corrections"
+  ],
+  "datasets": [
+    {
+      "id": "intake_submissions",
+      "label": "Vizient intake \u2014 submissions",
+      "agent": "PRS Intake Agent",
+      "source_file": "vizient_prs_intake_agent_may0519.xlsx",
+      "count": 20,
+      "use": "Validate monthly supplier invoice rows (Agent 1 rules).",
+      "action": "Future: batch intake validation UI"
+    },
+    {
+      "id": "intake_known_issues",
+      "label": "Vizient intake \u2014 known issues",
+      "agent": "PRS Intake Agent",
+      "source_file": "vizient_prs_intake_agent_may0519.xlsx",
+      "count": 16,
+      "use": "Test rows with injected validation defects."
+    },
+    {
+      "id": "intake_validation_rules",
+      "label": "Vizient intake \u2014 US rules",
+      "agent": "PRS Intake Agent",
+      "source_file": "vizient_prs_intake_agent_may0519.xlsx",
+      "count": 12,
+      "use": "Reference rule catalog (CR-01, CR-02, \u2026)."
+    },
+    {
+      "id": "ccr_transactions",
+      "label": "CCR evaluation batch",
+      "agent": "CCR Decision Agent",
+      "source_file": "ccr_decision_input_may2026.xlsx",
+      "count": 20,
+      "use": "Per-invoice decision vs contract terms.",
+      "action": "Live: /ccr \u2192 Evaluate"
+    },
+    {
+      "id": "workflows_active",
+      "label": "Orchestrator \u2014 active workflows",
+      "agent": "Workflow Orchestrator",
+      "source_file": "orchestrator_workflow_inputFile_0519.xlsx",
+      "count": 13,
+      "use": "Stage tracking per supplier/period (PRS\u2192CIA\u2192CCR\u2192Cash)."
+    },
+    {
+      "id": "workflows_handoffs",
+      "label": "Orchestrator \u2014 handoffs",
+      "agent": "Workflow Orchestrator",
+      "source_file": "orchestrator_workflow_inputFile_0519.xlsx",
+      "count": 6,
+      "use": "Agent-to-agent payloads ready to dispatch."
+    },
+    {
+      "id": "workflows_sla",
+      "label": "Orchestrator \u2014 SLA monitor",
+      "agent": "Workflow Orchestrator",
+      "source_file": "orchestrator_workflow_inputFile_0519.xlsx",
+      "count": 7,
+      "use": "Deadline breaches and orchestrator actions."
+    },
+    {
+      "id": "cash_invoices",
+      "label": "Cash recon \u2014 candidate invoices",
+      "agent": "Cash Reconciliation Agent",
+      "source_file": "Cash_reconciliation_input_0519.xlsx",
+      "count": 14,
+      "use": "Invoices after CCR PASS_THROUGH."
+    },
+    {
+      "id": "cash_payments",
+      "label": "Cash recon \u2014 bank payments",
+      "agent": "Cash Reconciliation Agent",
+      "source_file": "Cash_reconciliation_input_0519.xlsx",
+      "count": 13,
+      "use": "Incoming cash to match against invoices."
+    },
+    {
+      "id": "exceptions_queue",
+      "label": "Exception resolution \u2014 queue",
+      "agent": "Exception Resolution Agent",
+      "source_file": "exception_resolution_inputFile_0519.xlsx",
+      "count": 18,
+      "use": "Open exceptions from any upstream failure."
+    },
+    {
+      "id": "supplier_messages",
+      "label": "Supplier interaction \u2014 message queue",
+      "agent": "Supplier Interaction Agent",
+      "source_file": "supplier_interaction_inputFile_0519.xlsx",
+      "count": 14,
+      "use": "Outbound correction/ETA emails to suppliers."
+    },
+    {
+      "id": "learning_corrections",
+      "label": "Learning \u2014 human overrides",
+      "agent": "Learning / Evaluation",
+      "source_file": "learning_evaluation_InputFile_0519.xlsx",
+      "count": 11,
+      "use": "Feedback to refine prompts and rules (offline)."
+    }
+  ]
+}

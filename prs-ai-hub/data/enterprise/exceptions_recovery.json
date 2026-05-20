@@ -1,0 +1,113 @@
+{
+  "records": [
+    {
+      "exception_id": "EXC-004",
+      "attempt_number": "1",
+      "attempt_date": "05/19/2026",
+      "action_taken": "RETRY_WITH_CONTEXT",
+      "context_added": "Loaded full May 2026 batch; cross-referenced all invoice_numbers",
+      "result": "Confirmed duplicate: rows 9 and 16 both carry INV-OR-0526",
+      "next_step": "Await supplier confirmation of which row is the correct submission; then re-route unique one"
+    },
+    {
+      "exception_id": "EXC-005",
+      "attempt_number": "1",
+      "attempt_date": "05/19/2026",
+      "action_taken": "REQUEST_INFO via Supplier_Interaction_Agent",
+      "context_added": "Assembled list of 7 missing fields; generated MISSING_DOCS_1ST notice",
+      "result": "Notice sent; no response yet (within SLA window)",
+      "next_step": "If no response by 05/21 (48h), send MISSING_DOCS_2ND"
+    },
+    {
+      "exception_id": "EXC-008",
+      "attempt_number": "1",
+      "attempt_date": "05/19/2026",
+      "action_taken": "REQUEST_INFO via Supplier_Interaction_Agent",
+      "context_added": "Contract ceiling $160K; invoice $164,500; overage $4,500 (2.8%); MISMATCH_NOTICE sent",
+      "result": "Notice sent; awaiting supplier response (credit note or justification letter)",
+      "next_step": "If no response by 05/21, escalate to senior approver work package"
+    },
+    {
+      "exception_id": "EXC-010",
+      "attempt_number": "1",
+      "attempt_date": "05/17/2026",
+      "action_taken": "RETRY_WITH_CONTEXT",
+      "context_added": "CIA re-run with expanded extraction prompt; provided full contract text with ambiguity hints",
+      "result": "Confidence score unchanged at 0.31; 12 flags remain; CIA cannot resolve contradictions autonomously",
+      "next_step": "Attempt 2: request legal team annotation"
+    },
+    {
+      "exception_id": "EXC-010",
+      "attempt_number": "2",
+      "attempt_date": "05/18/2026",
+      "action_taken": "RETRY_WITH_CONTEXT",
+      "context_added": "Legal team provided partial annotation on payment terms; re-ran CIA term_normalisation node",
+      "result": "Confidence improved to 0.44 but still below 0.75 threshold; jurisdiction still DISPUTED",
+      "next_step": "Escalate full work package to legal + commercial teams for contract amendment"
+    },
+    {
+      "exception_id": "EXC-012",
+      "attempt_number": "1",
+      "attempt_date": "05/19/2026",
+      "action_taken": "REQUEST_INFO via Supplier_Interaction_Agent",
+      "context_added": "Supplier payment history (6 months on-time); MISSING_REPORT_1ST notice sent",
+      "result": "Notice delivered; no acknowledgement yet",
+      "next_step": "If no response by 05/21, send MISSING_REPORT_2ND and escalate to Exception queue"
+    },
+    {
+      "exception_id": "EXC-013",
+      "attempt_number": "1",
+      "attempt_date": "05/19/2026",
+      "action_taken": "RETRY_WITH_CONTEXT",
+      "context_added": "Searched last 6 months transaction history for prior credits from SUP-0083",
+      "result": "No prior credit found matching $11,400; confirmed this is a genuine overpayment",
+      "next_step": "Request credit note from supplier via Supplier_Interaction_Agent"
+    },
+    {
+      "exception_id": "EXC-016",
+      "attempt_number": "1",
+      "attempt_date": "05/19/2026",
+      "action_taken": "RETRY_WITH_CONTEXT",
+      "context_added": "Searched May 2026 open invoice list for $42,750 match (exact and \u00b11%)",
+      "result": "No match found in May 2026",
+      "next_step": "Expand search to April 2026"
+    },
+    {
+      "exception_id": "EXC-016",
+      "attempt_number": "2",
+      "attempt_date": "05/20/2026",
+      "action_taken": "RETRY_WITH_CONTEXT",
+      "context_added": "Searched April 2026 open invoice list and prior-period open balances",
+      "result": "No match found in April 2026 either; amount does not appear in any known invoice",
+      "next_step": "Expand to March 2026; if still no match after 3 retries, escalate with full bank record"
+    },
+    {
+      "exception_id": "EXC-017",
+      "attempt_number": "1",
+      "attempt_date": "05/19/2026",
+      "action_taken": "ESCALATE \u2014 work package assembly",
+      "context_added": "Assembled: invoice INV-HP-0526, contract C-2024-033, CCR PASS decision, wire PAY-008 confirmation",
+      "result": "Work package complete; routed to senior approver queue",
+      "next_step": "Awaiting human approval decision within 8-hour SLA"
+    },
+    {
+      "exception_id": "EXC-018",
+      "attempt_number": "1",
+      "attempt_date": "05/15/2026",
+      "action_taken": "REQUEST_INFO via Supplier_Interaction_Agent",
+      "context_added": "Sent MISSING_REPORT_2ND (second notice; first was sent 05/08)",
+      "result": "No response to either notice",
+      "next_step": "Send ESCALATION_WARNING (final notice before escalation)"
+    },
+    {
+      "exception_id": "EXC-018",
+      "attempt_number": "2",
+      "attempt_date": "05/19/2026",
+      "action_taken": "REQUEST_INFO via Supplier_Interaction_Agent",
+      "context_added": "Sent ESCALATION_WARNING \u2014 final notice; referenced chronic late pattern",
+      "result": "No response after 3 escalating notices; pattern = CHRONICALLY_LATE confirmed",
+      "next_step": "Escalate full work package: 6-month history, all notices, contract C-2024-018 for review"
+    }
+  ],
+  "source": "exception_resolution_inputFile_0519.xlsx"
+}

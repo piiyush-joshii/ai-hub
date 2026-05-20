@@ -1,0 +1,138 @@
+{
+  "records": [
+    {
+      "payment_id": "PAY-001",
+      "payment_date": "05/14/2026",
+      "payment_amount_usd": "148500",
+      "payment_method": "ACH",
+      "bank_transaction_ref": "ACH-20260514-0041",
+      "remittance_supplier_ref": "SUP-0014",
+      "remittance_invoice_ref": "INV-AT-0526",
+      "cash_scenario": "RECONCILED \u2192 matches EXP-001 exactly"
+    },
+    {
+      "payment_id": "PAY-003",
+      "payment_date": "05/14/2026",
+      "payment_amount_usd": "182000",
+      "payment_method": "ACH",
+      "bank_transaction_ref": "ACH-20260514-0043",
+      "remittance_supplier_ref": "SUP-0019",
+      "remittance_invoice_ref": "INV-PS-0526",
+      "cash_scenario": "RECONCILED \u2192 matches EXP-003 exactly"
+    },
+    {
+      "payment_id": "PAY-005",
+      "payment_date": "05/30/2026",
+      "payment_amount_usd": "245000",
+      "payment_method": "Wire",
+      "bank_transaction_ref": "WIRE-20260530-0071",
+      "remittance_supplier_ref": "SUP-0072",
+      "remittance_invoice_ref": "INV-LG-0526",
+      "cash_scenario": "RECONCILED \u2192 matches EXP-007 exactly"
+    },
+    {
+      "payment_id": "PAY-009",
+      "payment_date": "05/14/2026",
+      "payment_amount_usd": "178200",
+      "payment_method": "ACH",
+      "bank_transaction_ref": "ACH-20260514-0049",
+      "remittance_supplier_ref": "SUP-0122",
+      "remittance_invoice_ref": "INV-MR-0526",
+      "cash_scenario": "RECONCILED \u2192 matches EXP-012 exactly"
+    },
+    {
+      "payment_id": "PAY-010",
+      "payment_date": "05/30/2026",
+      "payment_amount_usd": "55600",
+      "payment_method": "ACH",
+      "bank_transaction_ref": "ACH-20260530-0050",
+      "remittance_supplier_ref": "SUP-0131",
+      "remittance_invoice_ref": "INV-WB-0526",
+      "cash_scenario": "RECONCILED \u2192 matches EXP-013 exactly"
+    },
+    {
+      "payment_id": "PAY-011",
+      "payment_date": "05/14/2026",
+      "payment_amount_usd": "156000",
+      "payment_method": "ACH",
+      "bank_transaction_ref": "ACH-20260514-0051",
+      "remittance_supplier_ref": "SUP-0014",
+      "remittance_invoice_ref": "INV-AT-0526B",
+      "cash_scenario": "RECONCILED \u2192 matches EXP-014 exactly"
+    },
+    {
+      "payment_id": "PAY-002",
+      "payment_date": "05/30/2026",
+      "payment_amount_usd": "118630",
+      "payment_method": "ACH",
+      "bank_transaction_ref": "ACH-20260530-0042",
+      "remittance_supplier_ref": "SUP-0031",
+      "remittance_invoice_ref": "INV-SC-0526",
+      "payment_notes": "Payment $120 short \u2014 likely rounding on retainer escalation",
+      "cash_scenario": "RECONCILED_WITH_VARIANCE \u2192 EXP-002 ($118,750) variance = 0.10% within tolerance"
+    },
+    {
+      "payment_id": "PAY-004",
+      "payment_date": "05/30/2026",
+      "payment_amount_usd": "31200",
+      "payment_method": "ACH",
+      "bank_transaction_ref": "ACH-20260530-0044",
+      "payment_notes": "No remittance advice provided by supplier",
+      "cash_scenario": "LOW_CONFIDENCE \u2192 amount matches EXP-006 but no supplier/invoice ref"
+    },
+    {
+      "payment_id": "PAY-006",
+      "payment_date": "05/15/2026",
+      "payment_amount_usd": "124000",
+      "payment_method": "ACH",
+      "bank_transaction_ref": "ACH-20260515-0046",
+      "remittance_supplier_ref": "SUP-0083",
+      "remittance_invoice_ref": "INV-GX-0526",
+      "payment_notes": "Payment exceeds invoice by $11,400 \u2014 possible prior credit applied",
+      "cash_scenario": "OVERPAYMENT \u2192 EXP-008 expected $112,600; actual $124,000 (+$11,400)"
+    },
+    {
+      "payment_id": "PAY-007",
+      "payment_date": "05/14/2026",
+      "payment_amount_usd": "50000",
+      "payment_method": "ACH",
+      "bank_transaction_ref": "ACH-20260514-0047",
+      "remittance_supplier_ref": "SUP-0091",
+      "remittance_invoice_ref": "INV-TW-0526",
+      "payment_notes": "Partial payment \u2014 supplier advised balance to follow next run",
+      "cash_scenario": "PARTIAL_PAYMENT \u2192 EXP-009 expected $67,300; received $50,000; gap $17,300"
+    },
+    {
+      "payment_id": "PAY-008",
+      "payment_date": "05/15/2026",
+      "payment_amount_usd": "534000",
+      "payment_method": "Wire",
+      "bank_transaction_ref": "WIRE-20260515-0048",
+      "remittance_supplier_ref": "SUP-0104",
+      "remittance_invoice_ref": "INV-HP-0526",
+      "payment_notes": "High-value wire transfer \u2014 requires senior approver sign-off",
+      "cash_scenario": "HIGH_VALUE \u2192 above $500K threshold; cannot auto-apply; approval gate triggered"
+    },
+    {
+      "payment_id": "PAY-012",
+      "payment_date": "05/30/2026",
+      "payment_amount_usd": "112600",
+      "payment_method": "ACH",
+      "bank_transaction_ref": "ACH-20260530-0052",
+      "remittance_supplier_ref": "SUP-0083",
+      "remittance_invoice_ref": "INV-GX-0526",
+      "payment_notes": "WARNING: INV-GX-0526 already paid via PAY-006 on 05/15 \u2014 duplicate risk",
+      "cash_scenario": "DUPLICATE_PAYMENT \u2192 same invoice_ref as PAY-006; hold for human review"
+    },
+    {
+      "payment_id": "PAY-013",
+      "payment_date": "05/31/2026",
+      "payment_amount_usd": "42750",
+      "payment_method": "ACH",
+      "bank_transaction_ref": "ACH-20260531-0053",
+      "payment_notes": "No remittance; no open invoice for this amount in current period",
+      "cash_scenario": "UNMATCHED_CREDIT \u2192 no candidate invoice found; hold pending investigation"
+    }
+  ],
+  "source": "Cash_reconciliation_input_0519.xlsx"
+}

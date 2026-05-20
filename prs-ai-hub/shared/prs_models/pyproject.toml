@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prs-models"
+version = "1.0.0"
+dependencies = ["pydantic[email]>=2.7.0"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["prs_models*"]

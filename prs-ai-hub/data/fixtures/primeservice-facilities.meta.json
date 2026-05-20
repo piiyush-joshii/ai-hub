@@ -1,0 +1,6 @@
+{
+  "label": "PrimeService \u2014 Facilities SLA",
+  "description": "SLA-heavy facilities agreement with clear payment windows.",
+  "contract_file": "C-2022-008_primeservice_facilities.txt",
+  "expected_scenario": "pass"
+}

@@ -1,0 +1,149 @@
+{
+  "records": [
+    {
+      "invoice_id": "EXP-001",
+      "payment_id": "PAY-001",
+      "scenario": "Exact match \u2014 $148,500",
+      "expected_agent_output": "RECONCILED",
+      "action_mode": "Autonomous application",
+      "human_approval": "NO",
+      "ai_first_doc_grounding": "Automated candidate matching; low-risk autonomous application"
+    },
+    {
+      "invoice_id": "EXP-003",
+      "payment_id": "PAY-003",
+      "scenario": "Exact match \u2014 $182,000",
+      "expected_agent_output": "RECONCILED",
+      "action_mode": "Autonomous application",
+      "human_approval": "NO",
+      "ai_first_doc_grounding": "Automated candidate matching; low-risk autonomous application"
+    },
+    {
+      "invoice_id": "EXP-007",
+      "payment_id": "PAY-005",
+      "scenario": "Exact match \u2014 $245,000",
+      "expected_agent_output": "RECONCILED",
+      "action_mode": "Autonomous application",
+      "human_approval": "NO",
+      "ai_first_doc_grounding": "Automated candidate matching; low-risk autonomous application"
+    },
+    {
+      "invoice_id": "EXP-012",
+      "payment_id": "PAY-009",
+      "scenario": "Exact match \u2014 $178,200",
+      "expected_agent_output": "RECONCILED",
+      "action_mode": "Autonomous application",
+      "human_approval": "NO",
+      "ai_first_doc_grounding": "Automated candidate matching; low-risk autonomous application"
+    },
+    {
+      "invoice_id": "EXP-013",
+      "payment_id": "PAY-010",
+      "scenario": "Exact match \u2014 $55,600",
+      "expected_agent_output": "RECONCILED",
+      "action_mode": "Autonomous application",
+      "human_approval": "NO",
+      "ai_first_doc_grounding": "Automated candidate matching; low-risk autonomous application"
+    },
+    {
+      "invoice_id": "EXP-014",
+      "payment_id": "PAY-011",
+      "scenario": "Exact match \u2014 $156,000",
+      "expected_agent_output": "RECONCILED",
+      "action_mode": "Autonomous application",
+      "human_approval": "NO",
+      "ai_first_doc_grounding": "Automated candidate matching; low-risk autonomous application"
+    },
+    {
+      "invoice_id": "EXP-002",
+      "payment_id": "PAY-002",
+      "scenario": "Variance $120 on $118,750 (0.10%)",
+      "expected_agent_output": "RECONCILED_WITH_VARIANCE",
+      "action_mode": "Auto-apply with note",
+      "human_approval": "NO",
+      "ai_first_doc_grounding": "Automated candidate matching; within tolerance confidence gate"
+    },
+    {
+      "invoice_id": "EXP-006",
+      "payment_id": "PAY-004",
+      "scenario": "No remittance ref \u2014 matched by amount/timing",
+      "expected_agent_output": "LOW_CONFIDENCE_MATCH",
+      "action_mode": "Recommended application",
+      "human_approval": "YES",
+      "ai_first_doc_grounding": "Low-confidence match \u2192 human review; timing window used as secondary signal"
+    },
+    {
+      "invoice_id": "EXP-004",
+      "payment_id": "(none)",
+      "scenario": "Payment window passed \u2014 no cash received",
+      "expected_agent_output": "OUTSTANDING",
+      "action_mode": "Escalate \u2014 LATE_ANOMALY",
+      "human_approval": "YES",
+      "ai_first_doc_grounding": "Supplier pattern = LATE_ANOMALY (usually on time); escalate to Exception Agent"
+    },
+    {
+      "invoice_id": "EXP-011",
+      "payment_id": "(none)",
+      "scenario": "Prior-period balance unpaid",
+      "expected_agent_output": "OUTSTANDING",
+      "action_mode": "Monitor \u2014 LATE_NORMAL",
+      "human_approval": "NO",
+      "ai_first_doc_grounding": "Supplier pattern = LATE_NORMAL (consistent); do not escalate; carry forward"
+    },
+    {
+      "invoice_id": "EXP-005",
+      "payment_id": "(none)",
+      "scenario": "5th of last 6 months unpaid",
+      "expected_agent_output": "OUTSTANDING",
+      "action_mode": "Flag \u2014 CHRONICALLY_LATE",
+      "human_approval": "YES",
+      "ai_first_doc_grounding": "Supplier pattern = CHRONICALLY_LATE; flag for contract review; contact supplier"
+    },
+    {
+      "invoice_id": "EXP-008",
+      "payment_id": "PAY-006",
+      "scenario": "Overpayment +$11,400 on $112,600",
+      "expected_agent_output": "OVERPAYMENT",
+      "action_mode": "Hold for credit note",
+      "human_approval": "YES",
+      "ai_first_doc_grounding": "Material exception \u2192 Exception Agent; alert finance team"
+    },
+    {
+      "invoice_id": "EXP-009",
+      "payment_id": "PAY-007",
+      "scenario": "Partial: $50K received of $67.3K",
+      "expected_agent_output": "PARTIAL_PAYMENT",
+      "action_mode": "Apply $50K; $17.3K outstanding",
+      "human_approval": "YES",
+      "ai_first_doc_grounding": "Low-confidence match; gap analysis required; Supplier Interaction Agent"
+    },
+    {
+      "invoice_id": "EXP-010",
+      "payment_id": "PAY-008",
+      "scenario": "High-value: $534,000 wire",
+      "expected_agent_output": "HIGH_VALUE_PENDING",
+      "action_mode": "Recommend application; await approval",
+      "human_approval": "YES",
+      "ai_first_doc_grounding": "Approval threshold gate; mandatory human approval regardless of confidence"
+    },
+    {
+      "invoice_id": "(none)",
+      "payment_id": "PAY-012",
+      "scenario": "Duplicate INV-GX-0526 (already paid PAY-006)",
+      "expected_agent_output": "DUPLICATE_PAYMENT",
+      "action_mode": "HOLD \u2014 do not apply",
+      "human_approval": "YES",
+      "ai_first_doc_grounding": "Data mismatch \u2192 immediate escalation; Exception Agent; alert finance"
+    },
+    {
+      "invoice_id": "(none)",
+      "payment_id": "PAY-013",
+      "scenario": "$42,750 no remittance \u2014 no matching invoice",
+      "expected_agent_output": "UNMATCHED_CREDIT",
+      "action_mode": "Hold pending investigation",
+      "human_approval": "YES",
+      "ai_first_doc_grounding": "Transaction context missing; reconciliation support needed; human review"
+    }
+  ],
+  "source": "Cash_reconciliation_input_0519.xlsx"
+}

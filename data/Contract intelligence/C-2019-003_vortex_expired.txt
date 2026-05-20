@@ -1,0 +1,193 @@
+================================================================================
+SOFTWARE LICENSE AND SUPPORT AGREEMENT
+Contract No. : C-2019-003
+================================================================================
+
+PURPOSE OF THIS DOCUMENT
+Submitted to the Contract Intelligence Agent for term extraction.
+CONTRACT IS EXPIRED. CIA must correctly identify the expiry date, flag the
+contract as EXPIRED, and pass this status to the CCR Decision Agent.
+CCR must classify any invoice submitted under this contract as HARD_EXCEPTION.
+
+CIA TEST SCENARIO : Expired contract — tests the term_extraction node's
+                    ability to identify expiry_date, compare against
+                    current date, and output status = EXPIRED with a clear
+                    flag for the CCR Decision Agent. No ambiguity in the
+                    expiry clause — failure to detect it is a CIA pipeline error.
+
+================================================================================
+SECTION 1 — PARTIES
+================================================================================
+
+BUYER
+  Legal Name         : Harland Pacific Corporation
+  Role               : Licensee / Buyer
+  Address            : 2100 Powell Street, Suite 900, Emeryville, California 94608
+  Registration No.   : HP-CA-2001-0823
+
+SUPPLIER
+  Legal Name         : Vortex Software Solutions Inc.
+  Role               : Licensor / Supplier
+  Supplier ID        : SUP-0007
+  Address            : 350 Technology Drive, Reston, Virginia 20190
+  Registration No.   : VS-VA-2008-0461
+  Primary Contact    : accounts@vortexsoftware.com | 703-555-0364
+
+================================================================================
+SECTION 2 — AGREEMENT TERM
+================================================================================
+
+Effective Date       : 06/01/2019
+Expiry Date          : 05/31/2022
+Duration             : 36 months
+Auto-Renewal         : NO
+Renewal Notice Days  : N/A — this Agreement does NOT auto-renew.
+                       Upon expiry, all licences granted hereunder
+                       terminate automatically. Continued use of the
+                       licensed software after 05/31/2022 without a
+                       new signed agreement constitutes unauthorised use.
+
+CONTRACT STATUS NOTE : This Agreement expired on 05/31/2022. No renewal
+                       or extension has been executed as of the date of
+                       this document. Any purchase orders, invoices, or
+                       payment requests submitted after 05/31/2022 and
+                       referencing this contract number are outside the
+                       scope of this Agreement and must not be processed
+                       without a new executed agreement.
+
+================================================================================
+SECTION 3 — SCOPE OF LICENSE
+================================================================================
+
+Category             : SERVICES (Software License + Support)
+Licensed Software    : Vortex Enterprise Data Platform (VEDP), version 4.x,
+                       including all modules, updates, and patches released
+                       during the license term.
+License Type         : Enterprise site license — unlimited named users across
+                       Buyer's organisation. License is non-transferable and
+                       non-sublicensable.
+Support Tier         : Premium Support — 24/7 phone and email support,
+                       4-hour response SLA for Priority 1 issues, dedicated
+                       customer success manager.
+
+================================================================================
+SECTION 4 — PRICING AND CONTRACT VALUE
+================================================================================
+
+Total Contract Value : USD 1,950,000 (One Million Nine Hundred Fifty
+                       Thousand Dollars) over the 36-month term.
+Currency             : USD
+
+Fee Structure:
+  Year 1 License Fee   : USD 550,000 (paid upfront by 06/30/2019)
+  Year 2 License Fee   : USD 630,000 (due by 06/01/2020)
+  Year 3 License Fee   : USD 680,000 (due by 06/01/2021)
+  Annual Support Fee   : Included in license fee — no separate support invoice.
+  Professional Services: USD 90,000 for implementation (Year 1 only),
+                         invoiced in three equal instalments of USD 30,000
+                         at project kickoff, midpoint, and go-live.
+
+Approved Invoice
+  Ceiling (Monthly)  : No monthly ceiling — invoicing follows the annual
+                       fee schedule above. Any invoice outside the
+                       schedule requires written pre-approval.
+
+Price Escalation     : License fees for Year 2 and Year 3 are fixed as
+                       stated above. No further escalation mechanism applies.
+
+================================================================================
+SECTION 5 — PAYMENT TERMS
+================================================================================
+
+Payment Due          : Net 30 days from invoice date for all invoice types.
+Early Payment
+  Discount           : None — annual license fees are pre-negotiated;
+                       no early payment discount applies.
+Late Payment
+  Penalty            : 1.0% per month on amounts outstanding beyond Net 30.
+Payment Method       : Wire transfer to Supplier's designated account.
+                       Cheques accepted for amounts below USD 10,000 only.
+
+================================================================================
+SECTION 6 — SERVICE LEVELS
+================================================================================
+
+Uptime Guarantee     : 99.5% monthly uptime for cloud-hosted modules.
+                       Downtime for scheduled maintenance (communicated
+                       48 hours in advance) is excluded from uptime calc.
+Priority 1 Response  : 4-hour initial response; resolution target 24 hours.
+Priority 2 Response  : 8-hour initial response; resolution target 72 hours.
+Priority 3 Response  : Next business day response; resolution target 10 days.
+SLA Credit           : If monthly uptime falls below 99.5%, Buyer is entitled
+                       to a service credit of 5% of that month's prorated
+                       annual fee. Maximum annual credit: 15% of annual fee.
+
+================================================================================
+SECTION 7 — EXPIRY AND POST-TERM OBLIGATIONS
+================================================================================
+
+Upon Expiry          : All software licences terminate on 05/31/2022.
+                       Buyer must cease use of all licensed software and
+                       destroy or return all copies within 30 days of expiry.
+Data Return          : Supplier will make Buyer's data available for export
+                       in standard format for 60 days following expiry.
+                       After 60 days, Supplier may delete Buyer's data
+                       without further obligation.
+Survival             : Sections 1, 7, 8, 9, and 10 survive termination
+                       or expiry of this Agreement.
+No Implied Renewal   : Use of the software after the expiry date does not
+                       constitute renewal or extension of this Agreement
+                       and does not create any new contractual rights.
+
+================================================================================
+SECTION 8 — DISPUTE RESOLUTION
+================================================================================
+
+Governing Law        : Commonwealth of Virginia
+Jurisdiction         : Fairfax County Circuit Court, Virginia; or the
+                       U.S. District Court for the Eastern District of Virginia.
+Escalation Process   : (1) Account manager — 10 business days.
+                       (2) Executive escalation — 20 business days.
+                       (3) Binding arbitration under AAA rules, seat: Reston, VA.
+
+================================================================================
+SECTION 9 — TERMINATION
+================================================================================
+
+Termination for
+  Convenience        : Buyer may terminate with 60 days written notice.
+                       No refund of pre-paid annual fees on convenience
+                       termination.
+Termination for
+  Cause              : Either party may terminate immediately for uncured
+                       material breach (30-day cure period) or insolvency.
+Notice Period        : 60 days (convenience) | Immediate (cause)
+
+================================================================================
+SECTION 10 — SPECIAL CLAUSES
+================================================================================
+
+Audit Rights         : Supplier may audit Buyer's software usage once per
+                       year with 15 business days notice to ensure
+                       compliance with license terms.
+Confidentiality      : Both parties maintain confidentiality for 5 years
+                       post-termination.
+Export Control       : Buyer agrees not to export licensed software to
+                       sanctioned countries in violation of U.S. export
+                       control laws (EAR/ITAR).
+
+================================================================================
+SIGNATURES
+================================================================================
+
+Harland Pacific Corporation           Vortex Software Solutions Inc.
+Signed : [Authorised Signatory]       Signed : [Authorised Signatory]
+Title  : VP Technology Procurement    Title  : VP Enterprise Sales
+Date   : 05/20/2019                   Date   : 05/22/2019
+
+================================================================================
+END OF AGREEMENT — C-2019-003
+CIA EXTRACTION NOTE: expiry_date = 05/31/2022. Status = EXPIRED.
+CCR Decision Agent must classify all invoices referencing C-2019-003 as
+HARD_EXCEPTION — contract not found or expired (per CCR rule set).
+================================================================================

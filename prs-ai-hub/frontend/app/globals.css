@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-brand-500: #14b8a6;
+  --color-brand-600: #0d9488;
+  --color-brand-700: #0f766e;
+  --color-pass: #16a34a;
+  --color-partial: #d97706;
+  --color-fail: #dc2626;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+}
+
+.font-data {
+  font-family: ui-monospace, "IBM Plex Mono", monospace;
+}

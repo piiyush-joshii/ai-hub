@@ -1,0 +1,133 @@
+{
+  "records": [
+    {
+      "row": "5",
+      "supplier_id": "VZ-004",
+      "prd_rule": "CR-01",
+      "field": "contact_email",
+      "injected_defect": "'stryker-ap@@stryker' \u2014 double @@ malformed email",
+      "expected_severity": "ERROR"
+    },
+    {
+      "row": "6",
+      "supplier_id": "VZ-005",
+      "prd_rule": "CR-02",
+      "field": "contact_phone",
+      "injected_defect": "'017-948-2000' \u2014 area code 017 starts with 0, invalid NANP",
+      "expected_severity": "ERROR"
+    },
+    {
+      "row": "7",
+      "supplier_id": "VZ-006",
+      "prd_rule": "CR-06",
+      "field": "invoice_date",
+      "injected_defect": "'06/30/2026' \u2014 future date (report period is 05/2026)",
+      "expected_severity": "ERROR"
+    },
+    {
+      "row": "8",
+      "supplier_id": "VZ-007",
+      "prd_rule": "CR-10",
+      "field": "invoice_amount_usd",
+      "injected_defect": "-84300.00 \u2014 negative value in non-negative amount field",
+      "expected_severity": "ERROR"
+    },
+    {
+      "row": "8",
+      "supplier_id": "VZ-007",
+      "prd_rule": "INFO",
+      "field": "supplier_id",
+      "injected_defect": "VZ-007 status = SUSPENDED in DB \u2192 CCR will raise HARD_EXCEPTION",
+      "expected_severity": "INFO"
+    },
+    {
+      "row": "9",
+      "supplier_id": "VZ-008",
+      "prd_rule": "C-01",
+      "field": "contract_number",
+      "injected_defect": "Required field contract_number is blank \u2014 CCR cannot look up contract",
+      "expected_severity": "ERROR"
+    },
+    {
+      "row": "10",
+      "supplier_id": "VZ-009",
+      "prd_rule": "CR-07",
+      "field": "delivery_zip",
+      "injected_defect": "'1174' \u2014 only 4 digits, US ZIP must be 5-digit or ZIP+4",
+      "expected_severity": "ERROR"
+    },
+    {
+      "row": "11",
+      "supplier_id": "VZ-010",
+      "prd_rule": "CR-08",
+      "field": "delivery_state",
+      "injected_defect": "'ZZ' \u2014 not a valid USPS 2-letter state abbreviation",
+      "expected_severity": "ERROR"
+    },
+    {
+      "row": "12",
+      "supplier_id": "VZ-011",
+      "prd_rule": "D-04",
+      "field": "invoice_copy_filename",
+      "injected_defect": "'document.pdf' \u2014 generic/suspicious filename",
+      "expected_severity": "WARNING"
+    },
+    {
+      "row": "12",
+      "supplier_id": "VZ-011",
+      "prd_rule": "D-04",
+      "field": "po_copy_filename",
+      "injected_defect": "'file1.pdf' \u2014 generic/suspicious filename",
+      "expected_severity": "WARNING"
+    },
+    {
+      "row": "13",
+      "supplier_id": "VZ-012",
+      "prd_rule": "D-02",
+      "field": "delivery_receipt_filename",
+      "injected_defect": "Document reference is blank \u2014 required for GOODS category",
+      "expected_severity": "WARNING"
+    },
+    {
+      "row": "14",
+      "supplier_id": "VZ-013",
+      "prd_rule": "D-03",
+      "field": "invoice_copy_filename",
+      "injected_defect": "'inv_VZ013_0526.docx' \u2014 .docx not in allowed [.pdf .jpg .png]",
+      "expected_severity": "ERROR"
+    },
+    {
+      "row": "15",
+      "supplier_id": "VZ-014",
+      "prd_rule": "CR-09",
+      "field": "invoice_number",
+      "injected_defect": "'INV-VZ002-0526' already used by VZ-002 in row 3 \u2014 duplicate",
+      "expected_severity": "ERROR"
+    },
+    {
+      "row": "16",
+      "supplier_id": "VZ-015",
+      "prd_rule": "C-01",
+      "field": "line_item_description",
+      "injected_defect": "Required field line_item_description is blank",
+      "expected_severity": "ERROR"
+    },
+    {
+      "row": "17",
+      "supplier_id": "VZ-016",
+      "prd_rule": "D-05",
+      "field": "invoice_copy_filename",
+      "injected_defect": "'inv_VZ001_0526.pdf' already referenced by VZ-001 in row 2",
+      "expected_severity": "WARNING"
+    },
+    {
+      "row": "18",
+      "supplier_id": "(empty)",
+      "prd_rule": "C-02",
+      "field": "(all)",
+      "injected_defect": "Entirely empty ghost row",
+      "expected_severity": "WARNING"
+    }
+  ],
+  "source": "vizient_prs_intake_agent_may0519.xlsx"
+}

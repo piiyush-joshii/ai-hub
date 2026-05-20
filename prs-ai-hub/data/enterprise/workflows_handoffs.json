@@ -1,0 +1,77 @@
+{
+  "records": [
+    {
+      "handoff_id": "HO-001",
+      "from_agent": "CCR_DECISION_AGENT",
+      "to_agent": "CASH_RECON_AGENT",
+      "workflow_id": "WF-007",
+      "supplier_id": "SUP-0072",
+      "handoff_trigger": "CCR decision PASS_THROUGH; invoice within contract bounds",
+      "payload_contents": "transaction_id=TXN-2026-0503; ccr_decision=PASS; invoice_amount=245000; contract_ceiling=280000",
+      "handoff_status": "READY",
+      "scheduled_dispatch": "05/20/2026",
+      "sla_deadline": "05/21/2026"
+    },
+    {
+      "handoff_id": "HO-002",
+      "from_agent": "CCR_DECISION_AGENT",
+      "to_agent": "CASH_RECON_AGENT",
+      "workflow_id": "WF-012",
+      "supplier_id": "SUP-0122",
+      "handoff_trigger": "CCR decision PASS_THROUGH",
+      "payload_contents": "transaction_id=TXN-2026-0519; ccr_decision=PASS; invoice_amount=178200; contract=C-2023-077",
+      "handoff_status": "READY",
+      "scheduled_dispatch": "05/20/2026",
+      "sla_deadline": "05/21/2026"
+    },
+    {
+      "handoff_id": "HO-003",
+      "from_agent": "EXCEPTION_RES_AGENT",
+      "to_agent": "SUPPLIER_COMMS_AGENT",
+      "workflow_id": "WF-004",
+      "supplier_id": "SUP-0041",
+      "handoff_trigger": "REQUEST_INFO action triggered; Supplier Interaction Agent must send ETA request",
+      "payload_contents": "exception_id=EXC-012; template=TMPL-CONF-ETA; supplier_email=accounts@orionlogistics.com",
+      "handoff_status": "DISPATCHED",
+      "scheduled_dispatch": "05/19/2026",
+      "sla_deadline": "05/21/2026"
+    },
+    {
+      "handoff_id": "HO-004",
+      "from_agent": "EXCEPTION_RES_AGENT",
+      "to_agent": "HUMAN_REVIEW_QUEUE",
+      "workflow_id": "WF-009",
+      "supplier_id": "SUP-0104",
+      "handoff_trigger": "High-value payment $534K awaiting mandatory human approval",
+      "payload_contents": "exception_id=EXC-017; work_package=assembled; approver_level=SENIOR",
+      "handoff_status": "DISPATCHED",
+      "scheduled_dispatch": "05/19/2026",
+      "sla_deadline": "05/20/2026"
+    },
+    {
+      "handoff_id": "HO-005",
+      "from_agent": "CASH_RECON_AGENT",
+      "to_agent": "EXCEPTION_RES_AGENT",
+      "workflow_id": "WF-011",
+      "supplier_id": "SUP-0083",
+      "handoff_trigger": "Overpayment $11,400 detected; exception creation triggered",
+      "payload_contents": "payment_id=PAY-006; expected=112600; actual=124000; gap=11400; exception_id=EXC-013",
+      "handoff_status": "IN_FLIGHT",
+      "scheduled_dispatch": "05/19/2026",
+      "sla_deadline": "05/21/2026"
+    },
+    {
+      "handoff_id": "HO-006",
+      "from_agent": "PRS_INTAKE_AGENT",
+      "to_agent": "EXCEPTION_RES_AGENT",
+      "workflow_id": "WF-005",
+      "supplier_id": "SUP-0053",
+      "handoff_trigger": "PRS intake FAILED; completeness 41.3%; exception raised before CCR",
+      "payload_contents": "job_id=JOB-PRS-0526-053; completeness=41.3; exception_id=EXC-005; cascade_isolation=ACTIVE",
+      "handoff_status": "DISPATCHED",
+      "scheduled_dispatch": "05/19/2026",
+      "sla_deadline": "05/21/2026"
+    }
+  ],
+  "source": "orchestrator_workflow_inputFile_0519.xlsx"
+}

@@ -1,0 +1,6 @@
+{
+  "label": "ApexTech Supply \u2014 Clean Contract",
+  "description": "All required fields present; expected HIGH confidence pass.",
+  "contract_file": "C-2024-001_apextech_supply.txt",
+  "expected_scenario": "pass"
+}

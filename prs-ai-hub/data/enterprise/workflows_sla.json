@@ -1,0 +1,75 @@
+{
+  "records": [
+    {
+      "workflow_id": "WF-009",
+      "supplier_name": "HiPriority Pharma",
+      "current_stage": "CASH_RECON \u2014 awaiting human approval",
+      "sla_deadline": "05/20/2026",
+      "hours_remaining": "4",
+      "sla_status": "CRITICAL",
+      "orchestrator_action": "ALERT_OPERATOR",
+      "breach_risk": "HIGH"
+    },
+    {
+      "workflow_id": "WF-006",
+      "supplier_name": "Bridgeway Office Supply",
+      "current_stage": "CCR_DECISION \u2014 supplier suspended",
+      "sla_deadline": "05/20/2026",
+      "hours_remaining": "6",
+      "sla_status": "CRITICAL",
+      "orchestrator_action": "HALT_ALL_STAGES",
+      "breach_risk": "HIGH"
+    },
+    {
+      "workflow_id": "WF-010",
+      "supplier_name": "Vertex Managed Services",
+      "current_stage": "EXCEPTION_RES \u2014 ambiguous contract",
+      "sla_deadline": "05/20/2026",
+      "hours_remaining": "8",
+      "sla_status": "AT_RISK",
+      "orchestrator_action": "HOLD_DOWNSTREAM",
+      "breach_risk": "HIGH"
+    },
+    {
+      "workflow_id": "WF-004",
+      "supplier_name": "Orion Logistics",
+      "current_stage": "EXCEPTION_RES \u2014 LATE_ANOMALY",
+      "sla_deadline": "05/21/2026",
+      "hours_remaining": "18",
+      "sla_status": "AT_RISK",
+      "orchestrator_action": "MONITOR",
+      "breach_risk": "MEDIUM"
+    },
+    {
+      "workflow_id": "WF-005",
+      "supplier_name": "Crestline IT Solutions",
+      "current_stage": "PRS_INTAKE \u2014 FAILED; retry pending",
+      "sla_deadline": "05/21/2026",
+      "hours_remaining": "20",
+      "sla_status": "AT_RISK",
+      "orchestrator_action": "ISOLATE_AND_RETRY",
+      "breach_risk": "MEDIUM"
+    },
+    {
+      "workflow_id": "WF-002",
+      "supplier_name": "Stratagem Consulting",
+      "current_stage": "CCR_DECISION \u2014 running",
+      "sla_deadline": "05/31/2026",
+      "hours_remaining": "264",
+      "sla_status": "ON_TRACK",
+      "orchestrator_action": "PROCEED",
+      "breach_risk": "LOW"
+    },
+    {
+      "workflow_id": "WF-013",
+      "supplier_name": "Newbridge Packaging",
+      "current_stage": "PRS_INTAKE \u2014 first run",
+      "sla_deadline": "05/31/2026",
+      "hours_remaining": "270",
+      "sla_status": "ON_TRACK",
+      "orchestrator_action": "PROCEED",
+      "breach_risk": "LOW"
+    }
+  ],
+  "source": "orchestrator_workflow_inputFile_0519.xlsx"
+}

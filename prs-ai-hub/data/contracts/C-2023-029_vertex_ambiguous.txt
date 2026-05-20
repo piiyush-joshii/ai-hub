@@ -1,0 +1,221 @@
+================================================================================
+GENERAL SERVICES AGREEMENT
+Contract No. : C-2023-029
+================================================================================
+
+PURPOSE OF THIS DOCUMENT
+Submitted to the Contract Intelligence Agent for term extraction.
+This contract contains intentionally vague, conflicting, and incomplete
+clauses that require human interpretation. CIA must flag extraction_warnings
+for every ambiguous field and route to human review queue.
+
+CIA TEST SCENARIO : Ambiguous contract — tests the CIA's ability to:
+  1. Detect conflicting terms (payment due appears twice with different values)
+  2. Flag undefined references (Exhibit X not attached)
+  3. Handle missing required fields (no total_contract_value stated)
+  4. Identify vague pricing language ("at prevailing market rates")
+  5. Catch contradictory auto-renewal clauses
+  6. Flag jurisdiction ambiguity (two states named)
+  Each ambiguity below is annotated with [CIA_AMBIGUITY_FLAG] for test tracing.
+
+================================================================================
+SECTION 1 — PARTIES
+================================================================================
+
+BUYER
+  Legal Name         : Crosspoint Industrial Group Inc.
+  Role               : Client
+  Address            : 700 Main Street, Kansas City, Missouri 64105
+  Registration No.   : CI-MO-2012-0774
+
+SUPPLIER
+  Legal Name         : Vertex Managed Services LLC
+  Role               : Service Provider
+  Supplier ID        : SUP-0029
+  Address            : 215 Lakeshore Boulevard, Cleveland, Ohio 44114
+  Registration No.   : VM-OH-2016-0593
+  Primary Contact    : ops@vertexmanaged.com | 216-555-0719
+
+================================================================================
+SECTION 2 — AGREEMENT TERM
+================================================================================
+
+Effective Date       : 09/01/2023
+
+Expiry Date          : [CIA_AMBIGUITY_FLAG — MISSING_EXPIRY]
+                       The Agreement shall remain in effect for an initial
+                       period, after which the parties will negotiate renewal
+                       terms. No specific expiry date is stated in this Agreement.
+                       CIA cannot extract a definitive expiry_date. Flag for
+                       human determination.
+
+Auto-Renewal         : [CIA_AMBIGUITY_FLAG — CONFLICTING_RENEWAL]
+                       Clause 2A states: "This Agreement auto-renews annually
+                       unless terminated with 30 days notice."
+                       Clause 2B states: "No renewal shall occur automatically;
+                       a signed amendment is required to extend the term."
+                       Clauses 2A and 2B directly contradict each other.
+                       CIA cannot determine auto_renewal = YES or NO.
+                       Flag for human interpretation.
+
+================================================================================
+SECTION 3 — SCOPE OF SERVICES
+================================================================================
+
+Category             : SERVICES
+Description          : Managed facility services as further described in
+                       Exhibit X. [CIA_AMBIGUITY_FLAG — MISSING_EXHIBIT]
+                       Exhibit X is referenced but not attached to this
+                       Agreement. The scope of services cannot be fully
+                       determined from the body of this document alone.
+                       CIA flags MISSING_REFERENCE: Exhibit X not found.
+
+================================================================================
+SECTION 4 — PRICING AND CONTRACT VALUE
+================================================================================
+
+[CIA_AMBIGUITY_FLAG — NO_CONTRACT_VALUE]
+Total Contract Value : Not stated. The Agreement does not specify a total
+                       contract value or a not-to-exceed cap. CIA cannot
+                       populate total_contract_value. Flag for human input.
+
+Monthly Fee          : USD 45,000 per month for standard services.
+                       Additional services beyond the standard scope will
+                       be priced at prevailing market rates.
+                       [CIA_AMBIGUITY_FLAG — VAGUE_PRICING]
+                       "Prevailing market rates" is undefined. No reference
+                       rate, index, or rate schedule is provided. CIA cannot
+                       normalise this into a bounded approved_invoice_ceiling
+                       for the CCR agent. Flag for human clarification.
+
+Price Escalation     : [CIA_AMBIGUITY_FLAG — CONFLICTING_ESCALATION]
+                       Section 4A states: "Fees are fixed for the Agreement
+                       term with no escalation."
+                       Section 4B states: "Annual fee adjustments of up to
+                       4% may be applied at the Supplier's discretion."
+                       These clauses conflict. CIA cannot determine whether
+                       price_escalation_clause = NONE or = 4% annual.
+                       Flag for human resolution.
+
+================================================================================
+SECTION 5 — PAYMENT TERMS
+================================================================================
+
+[CIA_AMBIGUITY_FLAG — CONFLICTING_PAYMENT_TERMS]
+Payment Due          : Section 5A states payment is due "Net 30 days from
+                       invoice date."
+                       Section 5C states "All invoices are payable within
+                       45 days of receipt."
+                       Net 30 (from invoice date) and Net 45 (from receipt)
+                       are different obligations. CIA cannot produce a single
+                       due_days value. Both values extracted; human must confirm
+                       which governs.
+
+Early Payment
+  Discount           : Not stated. No early payment discount applies or
+                       is referenced anywhere in this Agreement.
+
+Late Payment
+  Penalty            : [CIA_AMBIGUITY_FLAG — AMBIGUOUS_PENALTY]
+                       "A late fee may be charged at a reasonable rate."
+                       No specific penalty percentage or fixed amount is
+                       defined. CIA cannot extract late_penalty_percent.
+                       Flag: human must negotiate and amend contract to
+                       specify the penalty rate before CCR can apply it.
+
+Payment Method       : Bank transfer. No account details or routing
+                       information specified in the Agreement body.
+                       [CIA_AMBIGUITY_FLAG — MISSING_PAYMENT_DETAIL]
+                       Payment method is stated; account details are absent.
+
+================================================================================
+SECTION 6 — DELIVERY / SERVICE TERMS
+================================================================================
+
+Service Location     : Buyer's primary facility and such other locations
+                       as may be agreed from time to time.
+                       [CIA_AMBIGUITY_FLAG — VAGUE_LOCATION]
+                       No specific addresses listed. "As may be agreed"
+                       creates an open-ended obligation. CIA extracts
+                       delivery_terms = UNDEFINED; flag for human.
+
+================================================================================
+SECTION 7 — SLA TERMS
+================================================================================
+
+Performance Standard : [CIA_AMBIGUITY_FLAG — NO_MEASURABLE_SLA]
+                       "Services will be performed in a professional and
+                       workmanlike manner consistent with industry standards."
+                       No measurable KPIs, thresholds, fill rates, response
+                       times, or reporting obligations are defined.
+                       CIA cannot extract sla_terms. Flag: no enforceable
+                       SLA present; human must determine if acceptable.
+
+Monthly Reporting    : Not required under this Agreement.
+                       [CIA_AMBIGUITY_FLAG — MISSING_REPORTING_OBLIGATION]
+                       No supplier reporting obligation is specified.
+                       The PRS Intake Agent cannot trigger a MISSING_REPORT
+                       escalation because no report cadence has been defined.
+
+================================================================================
+SECTION 8 — DISPUTE RESOLUTION
+================================================================================
+
+[CIA_AMBIGUITY_FLAG — CONFLICTING_JURISDICTION]
+Governing Law        : Section 8A states "This Agreement is governed by
+                       the laws of the State of Missouri."
+                       Section 8B states "Disputes shall be resolved in
+                       accordance with Ohio law and in the courts of
+                       Cuyahoga County, Ohio."
+                       Missouri law (Section 8A) and Ohio courts/law
+                       (Section 8B) are irreconcilable. CIA flags
+                       jurisdiction = DISPUTED; human legal review required.
+
+================================================================================
+SECTION 9 — TERMINATION
+================================================================================
+
+Termination Notice   : [CIA_AMBIGUITY_FLAG — MISSING_NOTICE_PERIOD]
+                       "Either party may terminate this Agreement upon
+                       reasonable notice."
+                       "Reasonable notice" is not defined. CIA cannot
+                       extract termination_notice_days. Flag for human.
+
+================================================================================
+SECTION 10 — SPECIAL CLAUSES
+================================================================================
+
+General              : The parties agree to act in good faith and deal
+                       fairly with one another in all matters related to
+                       this Agreement.
+
+                       [CIA_AMBIGUITY_FLAG — INCOMPLETE_AGREEMENT]
+                       Multiple material terms are missing or contradictory.
+                       This Agreement in its current form is not suitable
+                       for automated CCR processing. CIA recommends:
+                       (a) Human legal review before activation.
+                       (b) Contract amendment to resolve all flagged items.
+                       (c) Do not activate contract in the CCR Decision
+                       Agent until all AMBIGUITY_FLAGS are resolved.
+
+================================================================================
+SIGNATURES
+================================================================================
+
+Crosspoint Industrial Group Inc.      Vertex Managed Services LLC
+Signed : [Authorised Signatory]       Signed : [Authorised Signatory]
+Title  : Director of Operations       Title  : CEO
+Date   : 08/28/2023                   Date   : 08/30/2023
+
+================================================================================
+END OF AGREEMENT — C-2023-029
+CIA EXTRACTION SUMMARY (EXPECTED OUTPUT):
+  extraction_confidence : LOW (0.31 estimated)
+  ambiguity_flags       : 12 flags raised
+  status                : REQUIRES_HUMAN_REVIEW
+  ccr_ready             : FALSE — do not pass to CCR until flags resolved
+  fields_unresolvable   : expiry_date, auto_renewal, total_contract_value,
+                          price_escalation_clause, due_days,
+                          late_penalty_percent, delivery_terms,
+                          sla_terms, termination_notice_days, jurisdiction
+================================================================================

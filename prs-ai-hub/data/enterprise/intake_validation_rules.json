@@ -1,0 +1,89 @@
+{
+  "records": [
+    {
+      "field": "contact_email",
+      "type": "string",
+      "us_rule_vizient_prd_agent_1": "RFC 5322 \u2014 user@domain.tld",
+      "regex_pattern": "[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}",
+      "error_code": "CR-01"
+    },
+    {
+      "field": "contact_phone",
+      "type": "string",
+      "us_rule_vizient_prd_agent_1": "NANP 10-digit; area code must not start with 0 or 1; strip +1",
+      "regex_pattern": "[2-9]\\d{2}[\\s\\-\\.]\\d{3}[\\s\\-\\.]\\d{4}",
+      "error_code": "CR-02"
+    },
+    {
+      "field": "invoice_date",
+      "type": "date",
+      "us_rule_vizient_prd_agent_1": "Past date only; accept MM/DD/YYYY or YYYY-MM-DD; must be within report_period",
+      "regex_pattern": "MM/DD/YYYY or YYYY-MM-DD",
+      "error_code": "CR-06"
+    },
+    {
+      "field": "invoice_amount_usd",
+      "type": "numeric",
+      "us_rule_vizient_prd_agent_1": "Non-negative; numeric bounds per contract profile",
+      "regex_pattern": "> 0",
+      "error_code": "CR-10"
+    },
+    {
+      "field": "delivery_zip",
+      "type": "string",
+      "us_rule_vizient_prd_agent_1": "5-digit or ZIP+4; range 00501\u201399950",
+      "regex_pattern": "\\d{5}(-\\d{4})?",
+      "error_code": "CR-07"
+    },
+    {
+      "field": "delivery_state",
+      "type": "string",
+      "us_rule_vizient_prd_agent_1": "USPS 2-letter state abbreviation (50 states + DC + territories)",
+      "regex_pattern": "AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY DC PR GU VI AS MP",
+      "error_code": "CR-08"
+    },
+    {
+      "field": "invoice_number",
+      "type": "string",
+      "us_rule_vizient_prd_agent_1": "Unique per batch \u2014 no duplicates across rows",
+      "regex_pattern": "Non-empty, unique",
+      "error_code": "CR-09"
+    },
+    {
+      "field": "contract_number",
+      "type": "string",
+      "us_rule_vizient_prd_agent_1": "Required \u2014 CCR agent cannot evaluate without this",
+      "regex_pattern": "Non-empty",
+      "error_code": "C-01"
+    },
+    {
+      "field": "line_item_description",
+      "type": "string",
+      "us_rule_vizient_prd_agent_1": "Required \u2014 non-empty description of goods/services",
+      "regex_pattern": "Non-empty",
+      "error_code": "C-01"
+    },
+    {
+      "field": "invoice_copy_filename",
+      "type": "string",
+      "us_rule_vizient_prd_agent_1": "Must not be blank; allowed .pdf .jpg .png; not generic",
+      "regex_pattern": ".+\\.(pdf|jpg|png)$",
+      "error_code": "D-02/D-03/D-04"
+    },
+    {
+      "field": "po_copy_filename",
+      "type": "string",
+      "us_rule_vizient_prd_agent_1": "Must not be blank; allowed .pdf .jpg .png; not generic",
+      "regex_pattern": ".+\\.(pdf|jpg|png)$",
+      "error_code": "D-02/D-03/D-04"
+    },
+    {
+      "field": "delivery_receipt_filename",
+      "type": "string",
+      "us_rule_vizient_prd_agent_1": "Required for GOODS; allowed .pdf .jpg .png",
+      "regex_pattern": ".+\\.(pdf|jpg|png)$",
+      "error_code": "D-02/D-03"
+    }
+  ],
+  "source": "vizient_prs_intake_agent_may0519.xlsx"
+}

@@ -1,0 +1,185 @@
+{
+  "records": [
+    {
+      "row": "2",
+      "transaction_id": "TXN-2026-0501",
+      "scenario": "Clean pass \u2014 all within bounds",
+      "agent_cognition_path": "context_retrieval \u2192 contract_term_lookup \u2192 match_evaluation \u2192 decision_reasoning",
+      "expected_ccr_output": "PASS_THROUGH",
+      "requires_human_approval": "NO",
+      "ai_first_doc_grounding": "70\u201385% automation target; autonomous pass"
+    },
+    {
+      "row": "3",
+      "transaction_id": "TXN-2026-0502",
+      "scenario": "Clean pass \u2014 services retainer",
+      "agent_cognition_path": "context_retrieval \u2192 contract_term_lookup \u2192 match_evaluation \u2192 decision_reasoning",
+      "expected_ccr_output": "PASS_THROUGH",
+      "requires_human_approval": "NO",
+      "ai_first_doc_grounding": "Automated transaction classification"
+    },
+    {
+      "row": "4",
+      "transaction_id": "TXN-2026-0503",
+      "scenario": "Clean pass \u2014 facilities WORKS",
+      "agent_cognition_path": "context_retrieval \u2192 contract_term_lookup \u2192 match_evaluation \u2192 decision_reasoning",
+      "expected_ccr_output": "PASS_THROUGH",
+      "requires_human_approval": "NO",
+      "ai_first_doc_grounding": "Automated transaction classification"
+    },
+    {
+      "row": "5",
+      "transaction_id": "TXN-2026-0504",
+      "scenario": "Expired contract (C-2019-003)",
+      "agent_cognition_path": "context_retrieval \u2192 contract_term_lookup \u2192 [BLOCK: status=EXPIRED]",
+      "expected_ccr_output": "HARD_EXCEPTION",
+      "requires_human_approval": "YES",
+      "ai_first_doc_grounding": "Contract-aware reasoning; CIA flags EXPIRED"
+    },
+    {
+      "row": "6",
+      "transaction_id": "TXN-2026-0505",
+      "scenario": "Supplier SUSPENDED",
+      "agent_cognition_path": "context_retrieval \u2192 [BLOCK: supplier policy violation]",
+      "expected_ccr_output": "HARD_EXCEPTION",
+      "requires_human_approval": "YES",
+      "ai_first_doc_grounding": "Evaluate policy; approval thresholds"
+    },
+    {
+      "row": "7",
+      "transaction_id": "TXN-2026-0506",
+      "scenario": "Invoice 107.5% of ceiling (>105%)",
+      "agent_cognition_path": "context_retrieval \u2192 contract_term_lookup \u2192 match_evaluation \u2192 [BLOCK]",
+      "expected_ccr_output": "HARD_EXCEPTION",
+      "requires_human_approval": "YES",
+      "ai_first_doc_grounding": "High-risk financial \u2192 mandatory human approval even at high confidence"
+    },
+    {
+      "row": "8",
+      "transaction_id": "TXN-2026-0507",
+      "scenario": "Invoice 102.8% of ceiling (102\u2013105%)",
+      "agent_cognition_path": "contract_term_lookup \u2192 match_evaluation \u2192 decision_reasoning \u2192 [FLAG]",
+      "expected_ccr_output": "SOFT_EXCEPTION",
+      "requires_human_approval": "RECOMMENDED",
+      "ai_first_doc_grounding": "First-pass exception diagnosis; recommended disposition"
+    },
+    {
+      "row": "9",
+      "transaction_id": "TXN-2026-0508",
+      "scenario": "PRS completeness 41% (<50%)",
+      "agent_cognition_path": "context_retrieval \u2192 [BLOCK: incomplete transaction]",
+      "expected_ccr_output": "HARD_EXCEPTION",
+      "requires_human_approval": "YES",
+      "ai_first_doc_grounding": "Transaction not fully validated by PRS; cannot assess"
+    },
+    {
+      "row": "10",
+      "transaction_id": "TXN-2026-0509",
+      "scenario": "PRS completeness 71.6% (50\u201380%)",
+      "agent_cognition_path": "context_retrieval \u2192 match_evaluation \u2192 decision_reasoning \u2192 [FLAG]",
+      "expected_ccr_output": "SOFT_EXCEPTION",
+      "requires_human_approval": "RECOMMENDED",
+      "ai_first_doc_grounding": "Low-confidence decision; human review focused on completeness"
+    },
+    {
+      "row": "11",
+      "transaction_id": "TXN-2026-0510",
+      "scenario": "Open hard exceptions > 0",
+      "agent_cognition_path": "context_retrieval \u2192 [BLOCK: unresolved exceptions exist]",
+      "expected_ccr_output": "HARD_EXCEPTION",
+      "requires_human_approval": "YES",
+      "ai_first_doc_grounding": "Unresolved exceptions \u2192 human review required per policy"
+    },
+    {
+      "row": "12",
+      "transaction_id": "TXN-2026-0511",
+      "scenario": "Historical anomaly: 3.2\u00d7 6-month avg",
+      "agent_cognition_path": "context_retrieval \u2192 historical_pattern_check \u2192 [FLAG: spike]",
+      "expected_ccr_output": "SOFT_EXCEPTION",
+      "requires_human_approval": "RECOMMENDED",
+      "ai_first_doc_grounding": "Databricks historical pattern analysis detects anomaly"
+    },
+    {
+      "row": "13",
+      "transaction_id": "TXN-2026-0512",
+      "scenario": "Contract AMBIGUOUS (CIA flagged)",
+      "agent_cognition_path": "contract_term_lookup \u2192 [BLOCK: no normalised terms available]",
+      "expected_ccr_output": "HUMAN_REVIEW",
+      "requires_human_approval": "YES",
+      "ai_first_doc_grounding": "Low-confidence decision; ambiguous contract interpretation"
+    },
+    {
+      "row": "14",
+      "transaction_id": "TXN-2026-0513",
+      "scenario": "Duplicate invoice (INV-AT-0526 seen in row 2)",
+      "agent_cognition_path": "context_retrieval \u2192 [BLOCK: duplicate detected]",
+      "expected_ccr_output": "HARD_EXCEPTION",
+      "requires_human_approval": "YES",
+      "ai_first_doc_grounding": "Data mismatch; exception agent involved"
+    },
+    {
+      "row": "15",
+      "transaction_id": "TXN-2026-0514",
+      "scenario": "Payment 5 days overdue (\u22647 days)",
+      "agent_cognition_path": "contract_term_lookup \u2192 match_evaluation \u2192 decision_reasoning \u2192 [SOFT FLAG]",
+      "expected_ccr_output": "SOFT_EXCEPTION",
+      "requires_human_approval": "RECOMMENDED",
+      "ai_first_doc_grounding": "Next business action = contact supplier via Supplier Interaction Agent"
+    },
+    {
+      "row": "16",
+      "transaction_id": "TXN-2026-0515",
+      "scenario": "Invoice $742K exceeds $500K approval threshold",
+      "agent_cognition_path": "contract_term_lookup \u2192 match_evaluation \u2192 [MANDATORY APPROVAL]",
+      "expected_ccr_output": "HARD_EXCEPTION",
+      "requires_human_approval": "YES",
+      "ai_first_doc_grounding": "High-risk financial \u2192 mandatory human approval even when confidence is high"
+    },
+    {
+      "row": "17",
+      "transaction_id": "TXN-2026-0516",
+      "scenario": "Repeated SOFT_EXCEPTION pattern (3 months)",
+      "agent_cognition_path": "historical_pattern_check \u2192 decision_reasoning \u2192 [FLAG: pattern]",
+      "expected_ccr_output": "SOFT_EXCEPTION",
+      "requires_human_approval": "RECOMMENDED",
+      "ai_first_doc_grounding": "Learning Agent captures patterns; flags for policy review"
+    },
+    {
+      "row": "19",
+      "transaction_id": "TXN-2026-0517",
+      "scenario": "New supplier, first invoice, small amount",
+      "agent_cognition_path": "context_retrieval \u2192 match_evaluation \u2192 decision_reasoning \u2192 [PASS: low risk]",
+      "expected_ccr_output": "PASS_THROUGH",
+      "requires_human_approval": "NO",
+      "ai_first_doc_grounding": "Novel submission pattern; low risk due to amount and clean PRS"
+    },
+    {
+      "row": "20",
+      "transaction_id": "TXN-2026-0518",
+      "scenario": "Chronically late: 5 of last 6 months",
+      "agent_cognition_path": "historical_pattern_check \u2192 decision_reasoning \u2192 [FLAG: chronic pattern]",
+      "expected_ccr_output": "SOFT_EXCEPTION",
+      "requires_human_approval": "RECOMMENDED",
+      "ai_first_doc_grounding": "Supplier Interaction Agent triggered; contract review flagged"
+    },
+    {
+      "row": "21",
+      "transaction_id": "TXN-2026-0519",
+      "scenario": "Clean pass \u2014 facilities repeat",
+      "agent_cognition_path": "context_retrieval \u2192 contract_term_lookup \u2192 match_evaluation \u2192 decision_reasoning",
+      "expected_ccr_output": "PASS_THROUGH",
+      "requires_human_approval": "NO",
+      "ai_first_doc_grounding": "Automated transaction classification"
+    },
+    {
+      "row": "22",
+      "transaction_id": "TXN-2026-0520",
+      "scenario": "Dual trigger: open exception + over ceiling",
+      "agent_cognition_path": "context_retrieval \u2192 [BLOCK: dual condition]",
+      "expected_ccr_output": "HARD_EXCEPTION",
+      "requires_human_approval": "YES",
+      "ai_first_doc_grounding": "Policy-triggered action; both conditions require human resolution"
+    }
+  ],
+  "source": "ccr_decision_input_may2026.xlsx"
+}

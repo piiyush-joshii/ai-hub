@@ -1,0 +1,148 @@
+{
+  "records": [
+    {
+      "supplier_id": "SUP-0014",
+      "supplier_name": "ApexTech Distribution",
+      "avg_days_to_pay_6m": "28",
+      "months_late_of_last_6": "0",
+      "late_classification": "ON_TIME",
+      "typical_cash_run": "Run1/Run2",
+      "prior_period_open_balance_usd": "0",
+      "last_reconciliation_status": "RECONCILED",
+      "pattern_notes": "Reliable; pays within 28 days consistently"
+    },
+    {
+      "supplier_id": "SUP-0019",
+      "supplier_name": "PrimeService Facilities",
+      "avg_days_to_pay_6m": "14",
+      "months_late_of_last_6": "0",
+      "late_classification": "ON_TIME",
+      "typical_cash_run": "Run1",
+      "prior_period_open_balance_usd": "0",
+      "last_reconciliation_status": "RECONCILED",
+      "pattern_notes": "Early payer; always Run1"
+    },
+    {
+      "supplier_id": "SUP-0031",
+      "supplier_name": "Stratagem Consulting",
+      "avg_days_to_pay_6m": "44",
+      "months_late_of_last_6": "1",
+      "late_classification": "ON_TIME",
+      "typical_cash_run": "Run2",
+      "prior_period_open_balance_usd": "0",
+      "last_reconciliation_status": "RECONCILED",
+      "pattern_notes": "Occasional minor variance \u2014 rounding on escalated retainer"
+    },
+    {
+      "supplier_id": "SUP-0041",
+      "supplier_name": "Orion Logistics",
+      "avg_days_to_pay_6m": "27",
+      "months_late_of_last_6": "0",
+      "late_classification": "LATE_ANOMALY",
+      "typical_cash_run": "Run2",
+      "prior_period_open_balance_usd": "0",
+      "last_reconciliation_status": "RECONCILED",
+      "pattern_notes": "Usually on time \u2014 current period missing; ESCALATE to Exception Agent"
+    },
+    {
+      "supplier_id": "SUP-0053",
+      "supplier_name": "Crestline IT Solutions",
+      "avg_days_to_pay_6m": "48",
+      "months_late_of_last_6": "5",
+      "late_classification": "CHRONICALLY_LATE",
+      "typical_cash_run": "Next-Run1",
+      "prior_period_open_balance_usd": "0",
+      "last_reconciliation_status": "OUTSTANDING",
+      "pattern_notes": "Late 5 of last 6 months; FLAG for contract review; Supplier Interaction Agent notified"
+    },
+    {
+      "supplier_id": "SUP-0067",
+      "supplier_name": "Newbridge Packaging",
+      "avg_days_to_pay_6m": "0",
+      "months_late_of_last_6": "0",
+      "late_classification": "ON_TIME",
+      "typical_cash_run": "Run2",
+      "prior_period_open_balance_usd": "0",
+      "last_reconciliation_status": "NEW",
+      "pattern_notes": "First invoice \u2014 no history; small amount ($31.2K); low risk"
+    },
+    {
+      "supplier_id": "SUP-0072",
+      "supplier_name": "LogiSupply Corp",
+      "avg_days_to_pay_6m": "29",
+      "months_late_of_last_6": "0",
+      "late_classification": "ON_TIME",
+      "typical_cash_run": "Run2",
+      "prior_period_open_balance_usd": "0",
+      "last_reconciliation_status": "RECONCILED",
+      "pattern_notes": "Consistent payer; large invoices always matched cleanly"
+    },
+    {
+      "supplier_id": "SUP-0083",
+      "supplier_name": "GenX Corporation",
+      "avg_days_to_pay_6m": "32",
+      "months_late_of_last_6": "2",
+      "late_classification": "LATE_NORMAL",
+      "typical_cash_run": "Run1",
+      "prior_period_open_balance_usd": "0",
+      "last_reconciliation_status": "RECONCILED",
+      "pattern_notes": "Occasionally short-pays then corrects; 2 soft exceptions in last 6 months"
+    },
+    {
+      "supplier_id": "SUP-0091",
+      "supplier_name": "TechWave Systems",
+      "avg_days_to_pay_6m": "35",
+      "months_late_of_last_6": "2",
+      "late_classification": "LATE_NORMAL",
+      "typical_cash_run": "Run1",
+      "prior_period_open_balance_usd": "17300",
+      "last_reconciliation_status": "PARTIAL",
+      "pattern_notes": "Frequently pays in two tranches; prior period $17.3K gap carried forward"
+    },
+    {
+      "supplier_id": "SUP-0104",
+      "supplier_name": "HiPriority Pharma",
+      "avg_days_to_pay_6m": "15",
+      "months_late_of_last_6": "0",
+      "late_classification": "ON_TIME",
+      "typical_cash_run": "Run1",
+      "prior_period_open_balance_usd": "0",
+      "last_reconciliation_status": "RECONCILED",
+      "pattern_notes": "High-value supplier; mandatory human approval on all invoices >$500K"
+    },
+    {
+      "supplier_id": "SUP-0115",
+      "supplier_name": "SlowPay Industrial",
+      "avg_days_to_pay_6m": "52",
+      "months_late_of_last_6": "4",
+      "late_classification": "LATE_NORMAL",
+      "typical_cash_run": "Next-Run1",
+      "prior_period_open_balance_usd": "93800",
+      "last_reconciliation_status": "OUTSTANDING",
+      "pattern_notes": "Consistently late; prior-period balance $93.8K; LATE_NORMAL \u2014 do not escalate"
+    },
+    {
+      "supplier_id": "SUP-0122",
+      "supplier_name": "Meridian Supplies",
+      "avg_days_to_pay_6m": "29",
+      "months_late_of_last_6": "0",
+      "late_classification": "ON_TIME",
+      "typical_cash_run": "Run1",
+      "prior_period_open_balance_usd": "0",
+      "last_reconciliation_status": "RECONCILED",
+      "pattern_notes": "Reliable mid-size supplier"
+    },
+    {
+      "supplier_id": "SUP-0131",
+      "supplier_name": "Westbridge Partners",
+      "avg_days_to_pay_6m": "30",
+      "months_late_of_last_6": "0",
+      "late_classification": "ON_TIME",
+      "typical_cash_run": "Run2",
+      "prior_period_open_balance_usd": "0",
+      "last_reconciliation_status": "RECONCILED",
+      "pattern_notes": "Clean history; always exact amounts"
+    }
+  ],
+  "source": "Cash_reconciliation_input_0519.xlsx"
+}

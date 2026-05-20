@@ -1,0 +1,252 @@
+================================================================================
+FACILITIES MANAGEMENT SERVICES AGREEMENT
+Contract No. : C-2022-008
+================================================================================
+
+PURPOSE OF THIS DOCUMENT
+Submitted to the Contract Intelligence Agent for term extraction.
+SLA-heavy agreement with clearly defined cash application windows,
+reconciliation cycles, and multi-site delivery obligations.
+Tests CIA's ability to extract and normalise timing windows consumed by
+the Cash Reconciliation Agent (expected cash outflows, timing, late patterns).
+Expected extraction confidence: HIGH.
+
+CIA TEST SCENARIO : Cash-oriented extraction — this contract is the primary
+                    test for the Cash Reconciliation Agent's period_setup and
+                    expected_outflow_calculation nodes. CIA must extract:
+                    payment schedule, reconciliation window, cash timing,
+                    and late-payment classification thresholds so the Cash
+                    Agent can compute expected outflows for each period.
+
+================================================================================
+SECTION 1 — PARTIES
+================================================================================
+
+BUYER
+  Legal Name         : Summit Operating Corporation
+  Role               : Client / Buyer
+  Address            : 1 Corporate Plaza, Suite 500, Atlanta, Georgia 30328
+  Registration No.   : SO-GA-2005-0339
+
+SUPPLIER
+  Legal Name         : PrimeService Facilities Group LLC
+  Role               : Facilities Service Provider
+  Supplier ID        : SUP-0019
+  Address            : 800 Commerce Road, Nashville, Tennessee 37210
+  Registration No.   : PS-TN-2010-0612
+  Primary Contact    : contracts@primeservicefm.com | 615-555-0283
+
+================================================================================
+SECTION 2 — AGREEMENT TERM
+================================================================================
+
+Effective Date       : 03/01/2022
+Expiry Date          : 02/28/2025
+Duration             : 36 months
+Auto-Renewal         : YES
+Renewal Notice Days  : 60 days written notice required before expiry to
+                       prevent renewal. If no notice is given, Agreement
+                       renews for successive 12-month periods at the
+                       Year 3 pricing level with a 2.5% annual escalation.
+
+================================================================================
+SECTION 3 — SCOPE OF SERVICES
+================================================================================
+
+Category             : WORKS
+Description          : Integrated facilities management across all Summit
+                       Operating Corporation sites, including:
+                         (a) Janitorial and sanitation services (daily)
+                         (b) HVAC preventive maintenance (monthly)
+                         (c) Electrical and plumbing reactive maintenance
+                         (d) Grounds maintenance and landscaping (weekly)
+                         (e) Security system monitoring (24/7)
+                         (f) Waste management and recycling programme
+                       Services cover 14 operational sites in Georgia,
+                       Tennessee, and North Carolina as listed in Exhibit A.
+
+================================================================================
+SECTION 4 — PRICING AND CONTRACT VALUE
+================================================================================
+
+Total Contract Value : USD 6,300,000 (Six Million Three Hundred Thousand
+                       Dollars) over the 36-month term.
+Currency             : USD
+
+Fee Schedule:
+  Base Monthly Fee   : USD 175,000 per month (all 14 sites combined)
+  Year 1 Total       : USD 2,100,000 (03/01/2022 – 02/28/2023)
+  Year 2 Total       : USD 2,100,000 (03/01/2023 – 02/29/2024)
+  Year 3 Total       : USD 2,100,000 (03/01/2024 – 02/28/2025)
+
+Variable / Reactive
+  Maintenance Cap    : USD 15,000 per month for reactive maintenance
+                       work orders not covered by the base scope.
+                       Work orders exceeding this cap require prior
+                       written approval from Buyer's Facilities Director.
+                       Approved overages are invoiced separately with
+                       written authorisation attached.
+
+Approved Invoice
+  Ceiling (Monthly)  : USD 190,000 (base USD 175,000 + reactive cap
+                       USD 15,000). Any invoice exceeding USD 190,000
+                       requires Buyer's written pre-approval before
+                       submission. CCR agent must treat any invoice
+                       above USD 199,500 (ceiling × 1.05) as
+                       HARD_EXCEPTION per payment validation rules.
+
+Price Escalation     : Base monthly fee increases by 2.5% on each
+                       March 1 anniversary. The Year 2 fee is therefore
+                       USD 179,375/month and Year 3 is USD 183,859/month
+                       (rounded to nearest dollar). Written notice of
+                       escalation is not required — it is automatic per
+                       this clause. Reactive maintenance cap does not escalate.
+
+================================================================================
+SECTION 5 — PAYMENT TERMS
+================================================================================
+
+Payment Due          : Net 30 days from date of valid invoice.
+                       Invoices must be submitted by the 7th calendar day
+                       of the month following the service month.
+                       Late invoice submission (after the 7th) shifts the
+                       payment due date to Net 30 from the actual
+                       submission date, not the service month end.
+
+Cash Application
+  Window             : Buyer's accounts payable team processes facilities
+                       invoices in two payment runs per month:
+                         Run 1 — 15th of each month (covers invoices
+                                 received by the 10th)
+                         Run 2 — Last business day of month (covers invoices
+                                 received between 11th and 25th)
+                       Invoices received after the 25th are held for
+                       Run 1 of the following month.
+                       Cash Reconciliation Agent must use these windows
+                       to determine expected cash outflow dates.
+
+Early Payment
+  Discount           : None applicable.
+Late Payment
+  Penalty            : 1.25% per month on balances outstanding beyond
+                       Net 30. Accrues from Day 31 onward.
+Reconciliation Cycle : Monthly close. Buyer's Cash Reconciliation Agent
+                       reconciles expected vs actual payments on the last
+                       business day of each month. Supplier must provide
+                       a remittance summary by the 28th of each month
+                       showing all open invoices, expected payment dates,
+                       and any credits or adjustments.
+
+Payment Method       : ACH to Supplier's designated US bank account.
+                       Payment reference must include contract number
+                       C-2022-008 and the service month (e.g. MAY-2026).
+
+================================================================================
+SECTION 6 — SLA TERMS
+================================================================================
+
+Response Times
+  (Reactive Work):
+    Priority 1 — Life Safety  : On-site response within 2 hours, 24/7.
+    Priority 2 — Operations   : On-site response within 4 business hours.
+    Priority 3 — Non-Urgent   : Scheduled within 3 business days.
+
+Preventive Maintenance
+  Completion Rate    : 98% of scheduled PM tasks completed on time monthly.
+
+Site Inspection      : Joint monthly walkthrough at each site, first
+                       week of the month. Findings logged in shared
+                       facilities management platform within 48 hours.
+
+Monthly Performance
+  Report             : Supplier submits performance report by the 5th
+                       of each month covering:
+                         — PM completion rate
+                         — Reactive work order count and close-out times
+                         — Open issues and remediation status
+                         — Headcount deployed per site
+                       Failure to submit by the 7th triggers MISSING_REPORT
+                       escalation in the PRS system.
+
+SLA Penalty Schedule :
+  PM completion < 95%        : Credit = 1% of monthly base fee
+  Priority 1 response miss   : Credit = USD 500 per incident
+  Priority 2 response miss   : Credit = USD 200 per incident
+  3+ Priority 1 misses/month : Buyer may issue formal cure notice
+
+================================================================================
+SECTION 7 — LATE SUPPLIER CLASSIFICATION
+================================================================================
+
+For purposes of Cash Reconciliation Agent classification:
+
+  LATE_NORMAL        : Supplier has submitted invoice or remittance late
+                       in 3 or more of the last 6 months — consistent
+                       pattern, do not escalate automatically.
+  LATE_ANOMALY       : Supplier is typically on time but submits late
+                       in the current month — escalate to Exception Agent.
+  CHRONICALLY_LATE   : Supplier late in 5 or more of the last 6 months —
+                       flag for contract review; Buyer may invoke cure notice.
+
+================================================================================
+SECTION 8 — DISPUTE RESOLUTION
+================================================================================
+
+Governing Law        : State of Georgia
+Jurisdiction         : Fulton County Superior Court, Atlanta, Georgia;
+                       or the U.S. District Court for the Northern
+                       District of Georgia.
+Escalation Process   : (1) Site manager discussion — 5 business days.
+                       (2) VP-level escalation — 15 business days.
+                       (3) Mediation — 30 days.
+                       (4) Binding arbitration, seat Atlanta, Georgia.
+
+================================================================================
+SECTION 9 — TERMINATION
+================================================================================
+
+Termination for
+  Convenience        : Either party may terminate with 90 days written notice.
+                       Supplier entitled to payment for all work completed
+                       to the date of termination.
+Termination for
+  Cause              : Either party may terminate immediately for uncured
+                       material breach (30-day cure period applies).
+Notice Period        : 90 days (convenience) | 30-day cure (cause)
+
+================================================================================
+SECTION 10 — SPECIAL CLAUSES
+================================================================================
+
+Step-In Rights       : If Supplier fails to perform critical services for
+                       72 consecutive hours, Buyer may engage an alternate
+                       supplier and back-charge Supplier for the cost
+                       differential, not to exceed 20% above Supplier's
+                       contracted rate.
+Key Personnel        : Supplier's regional facilities manager must be
+                       dedicated to this account and may not be reassigned
+                       without 30 days notice and Buyer approval.
+Audit Rights         : Buyer may audit Supplier's performance records and
+                       timesheets once per quarter with 5 business days notice.
+Insurance            : Supplier must carry general liability (USD 5,000,000),
+                       workers' compensation (statutory limits), and automobile
+                       liability (USD 1,000,000). Certificates on file with
+                       Buyer; renewal certificates within 5 days of policy renewal.
+
+================================================================================
+SIGNATURES
+================================================================================
+
+Summit Operating Corporation           PrimeService Facilities Group LLC
+Signed : [Authorised Signatory]        Signed : [Authorised Signatory]
+Title  : SVP Corporate Services        Title  : President
+Date   : 02/15/2022                    Date   : 02/18/2022
+
+================================================================================
+END OF AGREEMENT — C-2022-008
+CIA EXTRACTION NOTE: Cash application windows (Run 1: 15th, Run 2: last BD)
+and late supplier classification thresholds are explicitly defined for the
+Cash Reconciliation Agent. Expect HIGH confidence score.
+Approved invoice ceiling: USD 190,000/month.
+HARD_EXCEPTION threshold (×1.05): USD 199,500.
+================================================================================

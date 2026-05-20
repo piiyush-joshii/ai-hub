@@ -1,0 +1,104 @@
+{
+  "records": [
+    {
+      "feedback_id": "LRN-001",
+      "adjustment_type": "PROMPT",
+      "target_agent": "CCR_DECISION_AGENT",
+      "proposed_change": "Inject CIA price_escalation_clause value into ceiling calculation at decision time",
+      "weakens_safety": "NO",
+      "recommended_action": "APPLY",
+      "test_harness_case_needed": "YES \u2014 regression test: escalated pricing invoices"
+    },
+    {
+      "feedback_id": "LRN-002",
+      "adjustment_type": "SUPPRESSION",
+      "target_agent": "PRS_INTAKE_AGENT",
+      "proposed_change": "Add supplier-specific approved filename patterns to D-04 suppression list",
+      "weakens_safety": "NO",
+      "recommended_action": "APPLY",
+      "test_harness_case_needed": "YES \u2014 eval set: approved filenames per supplier"
+    },
+    {
+      "feedback_id": "LRN-003",
+      "adjustment_type": "PROMPT",
+      "target_agent": "EXCEPTION_RES_AGENT",
+      "proposed_change": "Add system-retry detection to perception step before escalation decision",
+      "weakens_safety": "NO",
+      "recommended_action": "APPLY",
+      "test_harness_case_needed": "YES \u2014 unit test: retry-generated duplicates"
+    },
+    {
+      "feedback_id": "LRN-004",
+      "adjustment_type": "PROMPT",
+      "target_agent": "CIA_AGENT",
+      "proposed_change": "Update extraction prompt: identify governing clause when conflicts found",
+      "weakens_safety": "NO",
+      "recommended_action": "NEEDS_REVIEW",
+      "test_harness_case_needed": "YES \u2014 eval set: 10 ambiguous contracts"
+    },
+    {
+      "feedback_id": "LRN-005",
+      "adjustment_type": "PROMPT",
+      "target_agent": "SUPPLIER_COMMS_AGENT",
+      "proposed_change": "Update TMPL-CORR-1ST reply-to with supplier-specific AP contact",
+      "weakens_safety": "NO",
+      "recommended_action": "APPLY",
+      "test_harness_case_needed": "NO \u2014 template change only"
+    },
+    {
+      "feedback_id": "LRN-006",
+      "adjustment_type": "POLICY",
+      "target_agent": "CASH_RECON_AGENT",
+      "proposed_change": "Check pre-notification table before LATE_ANOMALY classification",
+      "weakens_safety": "NO",
+      "recommended_action": "APPLY",
+      "test_harness_case_needed": "YES \u2014 integration test: pre-notified delays"
+    },
+    {
+      "feedback_id": "LRN-007",
+      "adjustment_type": "THRESHOLD",
+      "target_agent": "CASH_RECON_AGENT",
+      "proposed_change": "Raise SUP-0104 auto-approval threshold to $750K (6-month clean history)",
+      "weakens_safety": "NO",
+      "recommended_action": "NEEDS_REVIEW",
+      "test_harness_case_needed": "YES \u2014 simulation: 6-month payment history"
+    },
+    {
+      "feedback_id": "LRN-008",
+      "adjustment_type": "POLICY",
+      "target_agent": "CCR_DECISION_AGENT",
+      "proposed_change": "[REJECTED] Remove SUPPLIER_SUSPENDED as hard block \u2014 would weaken runtime safety",
+      "weakens_safety": "YES",
+      "recommended_action": "REJECT_SAFETY",
+      "test_harness_case_needed": "N/A \u2014 rejected; do not implement"
+    },
+    {
+      "feedback_id": "LRN-009",
+      "adjustment_type": "POLICY",
+      "target_agent": "PRS_INTAKE_AGENT",
+      "proposed_change": "Add cross-period completeness failure counter; escalate after 3 consecutive months",
+      "weakens_safety": "NO",
+      "recommended_action": "APPLY",
+      "test_harness_case_needed": "YES \u2014 regression: multi-period completeness"
+    },
+    {
+      "feedback_id": "LRN-010",
+      "adjustment_type": "THRESHOLD",
+      "target_agent": "CASH_RECON_AGENT",
+      "proposed_change": "[REJECTED] Reduce duplicate payment sensitivity \u2014 would weaken fraud detection",
+      "weakens_safety": "YES",
+      "recommended_action": "REJECT_SAFETY",
+      "test_harness_case_needed": "N/A \u2014 rejected; do not implement"
+    },
+    {
+      "feedback_id": "LRN-011",
+      "adjustment_type": "NONE",
+      "target_agent": "CCR_DECISION_AGENT",
+      "proposed_change": "No adjustment needed; current thresholds well-calibrated for SUP-0014 segment",
+      "weakens_safety": "NO",
+      "recommended_action": "APPLY",
+      "test_harness_case_needed": "NO \u2014 reinforce existing; no change"
+    }
+  ],
+  "source": "learning_evaluation_InputFile_0519.xlsx"
+}

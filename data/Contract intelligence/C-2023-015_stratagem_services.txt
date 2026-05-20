@@ -1,0 +1,227 @@
+================================================================================
+PROFESSIONAL SERVICES AGREEMENT
+Contract No. : C-2023-015
+================================================================================
+
+PURPOSE OF THIS DOCUMENT
+Submitted to the Contract Intelligence Agent for structured term extraction.
+Contains a multi-tier payment schedule and milestone-based invoicing model —
+tests the CIA's ability to normalise complex, non-standard payment structures
+into a CCR-consumable format. Expected extraction confidence: MEDIUM-HIGH.
+
+CIA TEST SCENARIO : Complex payment structure — tiered milestones, retainer
+                    plus variable billing, and performance-linked bonuses.
+                    CIA must normalise into a single payment_terms object.
+                    CCR agent must receive: base_monthly_ceiling, milestone
+                    values, and bonus thresholds to evaluate invoice validity.
+
+================================================================================
+SECTION 1 — PARTIES
+================================================================================
+
+BUYER
+  Legal Name         : Meridian Group Holdings Inc.
+  Role               : Client / Buyer
+  Address            : 88 West Monroe Street, Floor 14, Chicago, Illinois 60603
+  Registration No.   : MG-IL-2006-0552
+
+SUPPLIER
+  Legal Name         : Stratagem Consulting Partners LLC
+  Role               : Service Provider
+  Supplier ID        : SUP-0031
+  Address            : 400 Park Avenue South, New York, New York 10016
+  Registration No.   : SC-NY-2014-0309
+  Primary Contact    : billing@stratagemparters.com | 212-555-0847
+
+================================================================================
+SECTION 2 — AGREEMENT TERM
+================================================================================
+
+Effective Date       : 04/01/2023
+Expiry Date          : 03/31/2026
+Duration             : 36 months
+Auto-Renewal         : NO
+Renewal Notice Days  : N/A — no auto-renewal. Parties must execute a new
+                       agreement or written amendment before expiry to
+                       continue services beyond 03/31/2026.
+
+================================================================================
+SECTION 3 — SCOPE OF SERVICES
+================================================================================
+
+Category             : SERVICES
+Description          : Enterprise process transformation consulting,
+                       including current-state assessment, future-state design,
+                       change management support, and implementation oversight.
+                       Detailed workstream scope defined in Statement of Work
+                       (SOW) Exhibit A, which forms part of this Agreement.
+Engagement Model     : Hybrid — fixed monthly retainer plus milestone
+                       deliverable fees plus optional performance bonus.
+
+================================================================================
+SECTION 4 — PRICING AND CONTRACT VALUE
+================================================================================
+
+Total Contract Value : USD 7,200,000 (Seven Million Two Hundred Thousand
+                       Dollars) structured as follows:
+
+  Component 1 — Monthly Retainer:
+    Amount             : USD 120,000 per month
+    Duration           : All 36 months of the Agreement term
+    Total Retainer     : USD 4,320,000
+
+  Component 2 — Milestone Deliverable Fees (fixed):
+    Milestone 1  : Current-state assessment report     USD 180,000
+                   Due on or before: 07/31/2023
+    Milestone 2  : Future-state design document         USD 250,000
+                   Due on or before: 12/31/2023
+    Milestone 3  : Pilot implementation sign-off        USD 350,000
+                   Due on or before: 06/30/2024
+    Milestone 4  : Full rollout completion              USD 500,000
+                   Due on or before: 12/31/2024
+    Milestone 5  : Post-implementation review           USD 100,000
+                   Due on or before: 03/31/2025
+    Total Milestones : USD 1,380,000
+
+  Component 3 — Performance Bonus (at-risk):
+    Maximum Bonus    : USD 1,500,000 over contract term
+    Bonus Trigger    : Payable if measurable KPIs defined in Exhibit B
+                       are achieved. KPIs include: on-time milestone delivery
+                       (40% of bonus weight), stakeholder satisfaction score
+                       ≥ 4.2/5.0 (30% weight), and documented cost savings
+                       exceeding USD 10,000,000 for Buyer (30% weight).
+    Bonus Assessment : Annually on each April 1 anniversary; paid within
+                       45 days of written Buyer confirmation of KPI achievement.
+
+Currency             : USD
+Monthly Invoice
+  Ceiling            : USD 120,000 for retainer months with no milestone.
+                       USD 120,000 + applicable milestone amount in milestone
+                       months. Bonus invoices are separate and are not subject
+                       to the monthly ceiling.
+
+Price Escalation     : Monthly retainer increases by 3.0% on each April 1
+                       anniversary (Month 13 and Month 25). The escalation
+                       is automatic and does not require a separate notice.
+                       Milestone and bonus amounts are fixed and do not escalate.
+
+================================================================================
+SECTION 5 — PAYMENT TERMS
+================================================================================
+
+Retainer Invoicing   : Invoiced on the 1st of each month in advance.
+Milestone Invoicing  : Invoiced within 5 business days of Buyer's written
+                       acceptance of the milestone deliverable.
+Bonus Invoicing      : Invoiced within 10 business days of Buyer's written
+                       KPI confirmation letter.
+
+Payment Due          : Net 45 days from date of valid invoice for all
+                       invoice types.
+Early Payment
+  Discount           : 1.5% discount if retainer invoices are paid within
+                       15 days of invoice date. Discount does not apply to
+                       milestone or bonus invoices.
+Late Payment
+  Penalty            : 1.0% per month on all amounts outstanding beyond
+                       Net 45. Penalty accrues from Day 46 onward.
+Disputed Invoices    : If Buyer disputes any invoice amount, Buyer must
+                       notify Supplier in writing within 10 days of invoice
+                       receipt. Undisputed portions remain due on the
+                       standard Net 45 schedule. Disputed portions are
+                       placed in hold pending resolution per Section 8.
+Payment Method       : Wire transfer or ACH to Supplier's designated
+                       account. Cheques not accepted.
+
+================================================================================
+SECTION 6 — DELIVERY / SERVICE TERMS
+================================================================================
+
+Work Location        : Primarily remote, with on-site presence at Buyer's
+                       Chicago headquarters at least 4 days per month,
+                       or as mutually agreed in writing.
+Key Personnel        : Supplier commits to maintaining continuity of named
+                       key personnel listed in Exhibit C for a minimum of
+                       18 months from the Effective Date. Substitution of
+                       key personnel requires 30 days advance written notice
+                       and Buyer's written approval, not unreasonably withheld.
+IP Ownership         : All deliverables, reports, and work product created
+                       under this Agreement are works-for-hire and become
+                       the sole property of Buyer upon payment of applicable
+                       fees.
+
+================================================================================
+SECTION 7 — SLA TERMS
+================================================================================
+
+Milestone Timeliness : Each milestone deliverable must be submitted for
+                       Buyer review by the date specified in Section 4.
+                       Buyer has 15 business days to accept, reject with
+                       written reasons, or request revisions.
+Revision Cycles      : Maximum two revision cycles per milestone at no
+                       additional charge. Third revision (if required) billed
+                       at USD 2,500 per consultant day.
+Status Reporting     : Supplier must submit a written status report every
+                       two weeks, covering: work completed, work planned,
+                       risks, issues, and resource utilisation.
+Response SLA         : Supplier must acknowledge Buyer communications
+                       (email or portal) within 4 business hours and provide
+                       a substantive response within 2 business days.
+
+================================================================================
+SECTION 8 — DISPUTE RESOLUTION
+================================================================================
+
+Governing Law        : State of Illinois
+Jurisdiction         : Cook County Circuit Court, Chicago, Illinois.
+Escalation Process   : (1) Project manager discussion — 5 business days.
+                       (2) Executive sponsor escalation — 15 business days.
+                       (3) Mediation under JAMS rules — 30 days.
+                       (4) Binding arbitration in Chicago, Illinois if
+                       mediation fails.
+
+================================================================================
+SECTION 9 — TERMINATION
+================================================================================
+
+Termination for
+  Convenience        : Buyer may terminate with 45 days written notice.
+                       Supplier is entitled to payment for all work
+                       satisfactorily completed to the termination date,
+                       plus reasonable wind-down costs not to exceed
+                       USD 50,000.
+Termination for
+  Cause              : Either party may terminate immediately if the other
+                       party materially breaches and fails to cure within
+                       21 days of written notice.
+Notice Period        : 45 days (convenience) | 21-day cure (cause)
+
+================================================================================
+SECTION 10 — SPECIAL CLAUSES
+================================================================================
+
+Non-Solicitation     : For 12 months following termination, neither party
+                       will directly solicit or hire the other's personnel
+                       who were involved in this engagement.
+Subcontracting       : Supplier may not subcontract more than 30% of
+                       billable work without Buyer's prior written consent.
+Insurance            : Supplier must maintain professional liability
+                       (E&O) insurance of at least USD 5,000,000 and
+                       general liability of at least USD 2,000,000 throughout
+                       the Agreement term. Certificates of insurance must
+                       be provided within 10 days of Effective Date and
+                       on each renewal.
+
+================================================================================
+SIGNATURES
+================================================================================
+
+Meridian Group Holdings Inc.          Stratagem Consulting Partners LLC
+Signed : [Authorised Signatory]       Signed : [Authorised Signatory]
+Title  : Chief Procurement Officer    Title  : Managing Partner
+Date   : 03/22/2023                   Date   : 03/25/2023
+
+================================================================================
+END OF AGREEMENT — C-2023-015
+CIA EXTRACTION NOTE: Complex payment structure. CIA must normalise retainer +
+milestone + bonus into unified payment_terms. Expect MEDIUM-HIGH confidence.
+================================================================================

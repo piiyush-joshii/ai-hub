@@ -1,0 +1,6 @@
+{
+  "label": "Vertex Services \u2014 Ambiguous Contract",
+  "description": "Intentionally vague clauses; expect partial/fail with warnings.",
+  "contract_file": "C-2023-029_vertex_ambiguous.txt",
+  "expected_scenario": "partial"
+}

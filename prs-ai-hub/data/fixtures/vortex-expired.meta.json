@@ -1,0 +1,6 @@
+{
+  "label": "Vortex Software \u2014 Expired Contract",
+  "description": "Contract past expiry; expect fail flags on term dates.",
+  "contract_file": "C-2019-003_vortex_expired.txt",
+  "expected_scenario": "fail"
+}
