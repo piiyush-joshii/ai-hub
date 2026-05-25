@@ -135,3 +135,67 @@ export async function evaluateCCRTransaction(transactionId: string) {
   }>(`/ccr/transactions/${transactionId}/evaluate`);
   return data;
 }
+
+export type IntakeSubmission = Record<string, string> & { submission_key: string };
+
+export async function listIntakeSubmissions() {
+  const { data } = await api.get<{ items: IntakeSubmission[]; total: number }>(
+    "/pilot/intake/submissions"
+  );
+  return data;
+}
+
+export async function validateIntakeSubmission(submissionKey: string) {
+  const encoded = encodeURIComponent(submissionKey);
+  const { data } = await api.post<{ submission_key: string; run_id: string; result: Record<string, unknown> }>(
+    `/pilot/intake/submissions/${encoded}/validate`
+  );
+  return data;
+}
+
+export async function listSupplierMessages() {
+  const { data } = await api.get<{ items: Record<string, string>[]; total: number }>(
+    "/pilot/supplier/messages"
+  );
+  return data;
+}
+
+export async function composeSupplierMessage(messageId: string) {
+  const { data } = await api.post<{
+    message_id: string;
+    run_id: string;
+    draft: Record<string, unknown>;
+  }>(`/pilot/supplier/messages/${messageId}/compose`);
+  return data;
+}
+
+export type ApprovalItem = {
+  ref_id: string;
+  item_type: string;
+  title: string;
+  status: string;
+  payload: Record<string, unknown>;
+  agent_result: Record<string, unknown> | null;
+  created_at: string | null;
+};
+
+export async function listApprovals() {
+  const { data } = await api.get<{ items: ApprovalItem[]; total: number }>("/pilot/approvals");
+  return data;
+}
+
+export async function approveItem(refId: string, note?: string) {
+  const { data } = await api.post(`/pilot/approvals/${encodeURIComponent(refId)}/approve`, {
+    note,
+    decided_by: "operator",
+  });
+  return data;
+}
+
+export async function rejectItem(refId: string, note?: string) {
+  const { data } = await api.post(`/pilot/approvals/${encodeURIComponent(refId)}/reject`, {
+    note,
+    decided_by: "operator",
+  });
+  return data;
+}

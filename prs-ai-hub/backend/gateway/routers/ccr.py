@@ -1,13 +1,16 @@
 import os
+import time
 
 import httpx
 from fastapi import APIRouter, HTTPException
 
+from services.database import async_session, create_approval, log_agent_run
 from services.enterprise_data import (
     get_transaction,
     load_transactions,
     resolve_contract_text,
 )
+from services.run_context import new_run_id
 
 router = APIRouter()
 
@@ -47,6 +50,8 @@ async def evaluate_ccr_transaction(transaction_id: str):
         "contract_filename": filename,
     }
 
+    run_id = new_run_id()
+    started = time.perf_counter()
     async with httpx.AsyncClient(timeout=120) as client:
         response = await client.post(f"{CCR_AGENT_URL}/agents/ccr/decide", json=payload)
         if response.is_error:
@@ -57,6 +62,29 @@ async def evaluate_ccr_transaction(transaction_id: str):
                 pass
             raise HTTPException(status_code=response.status_code, detail=str(detail))
         result = response.json()
+
+    latency = int((time.perf_counter() - started) * 1000)
+    async with async_session() as session:
+        await log_agent_run(
+            session,
+            run_id=run_id,
+            parent_ref=transaction_id,
+            agent_name="ccr_decision",
+            phase="ccr",
+            status="completed",
+            result=result,
+            output_status=result.get("ccr_decision") or result.get("status"),
+            latency_ms=latency,
+        )
+        if result.get("requires_human_approval") or result.get("ccr_decision") == "HARD_EXCEPTION":
+            await create_approval(
+                session,
+                item_type="ccr_decision",
+                ref_id=f"CCR-APPROVE-{transaction_id}",
+                title=f"CCR: {transaction_id} — {result.get('ccr_decision', 'review')}",
+                payload=txn,
+                agent_result=result,
+            )
 
     expected = txn.get("expected_ccr_decision") or ""
     actual = result.get("ccr_decision", "")

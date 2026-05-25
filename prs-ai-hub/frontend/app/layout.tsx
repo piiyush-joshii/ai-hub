@@ -3,7 +3,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "AI Hub",
+  title: "Viziant AI Hub",
   description: "Purchase Request & Contract Validation System",
 };
 

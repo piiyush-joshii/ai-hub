@@ -50,6 +50,7 @@ Services:
 | Contract  | http://localhost:8002/health |
 | SKU       | http://localhost:8003/health |
 | CCR       | http://localhost:8004/health |
+| Supplier  | http://localhost:8005/health |
 
 Sync all enterprise workbooks into JSON (`data/enterprise/*.json` + `manifest.json`):
 
@@ -60,7 +61,12 @@ python scripts/sync_enterprise_data.py
 Then:
 
 - **Enterprise** (`/enterprise`) — browse all synced datasets (intake, CCR, cash recon, exceptions, supplier comms, workflows, learning).
+- **Intake pilot** (`/pilot/intake`) — batch-validate Vizient intake rows (Phase 1).
+- **Supplier** (`/supplier`) — draft supplier emails from message queue (Phase 1).
+- **Approvals** (`/pilot/approvals`) — supervised pilot approval queue (Phase 0).
 - **CCR** (`/ccr`) — run the CCR agent on transactions from `ccr_decision_input_may2026.xlsx`.
+
+See `PHASE1_PILOT.md` for scope vs the technical v2 document.
 
 ### 5. Frontend (separate terminal)
 

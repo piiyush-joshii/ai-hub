@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from routers import ccr, enterprise, fixtures, prs
+from routers import ccr, enterprise, fixtures, pilot, prs
 from services.database import init_db
 
 load_dotenv(Path(__file__).resolve().parents[2] / ".env")  # prs-ai-hub/.env
@@ -39,6 +39,7 @@ app.add_middleware(
 app.include_router(prs.router, prefix="/api/v1/prs", tags=["PRS"])
 app.include_router(ccr.router, prefix="/api/v1/ccr", tags=["CCR"])
 app.include_router(enterprise.router, prefix="/api/v1/enterprise", tags=["Enterprise"])
+app.include_router(pilot.router, prefix="/api/v1/pilot", tags=["Pilot"])
 app.include_router(fixtures.router, prefix="/api/v1/fixtures", tags=["Fixtures"])
 
 

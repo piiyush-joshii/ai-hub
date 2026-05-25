@@ -25,6 +25,7 @@ export INTAKE_AGENT_URL="${INTAKE_AGENT_URL:-http://localhost:8001}"
 export CONTRACT_AGENT_URL="${CONTRACT_AGENT_URL:-http://localhost:8002}"
 export SKU_AGENT_URL="${SKU_AGENT_URL:-http://localhost:8003}"
 export CCR_AGENT_URL="${CCR_AGENT_URL:-http://localhost:8004}"
+export SUPPLIER_AGENT_URL="${SUPPLIER_AGENT_URL:-http://localhost:8005}"
 export DATABASE_URL="${DATABASE_URL:-sqlite+aiosqlite:///${ROOT}/data/prs_local.db}"
 export DATA_DIR="${DATA_DIR:-$ROOT/data}"
 export CORS_ORIGINS="${CORS_ORIGINS:-http://localhost:3000}"
@@ -55,6 +56,10 @@ PIDS+=($!)
 
 echo "Starting CCR agent :8004 ..."
 (cd "$ROOT/backend/agents/ccr" && uvicorn main:app --host 0.0.0.0 --port 8004) &
+PIDS+=($!)
+
+echo "Starting supplier agent :8005 ..."
+(cd "$ROOT/backend/agents/supplier" && uvicorn main:app --host 0.0.0.0 --port 8005) &
 PIDS+=($!)
 
 echo "Starting gateway :8000 ..."

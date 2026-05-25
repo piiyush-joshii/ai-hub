@@ -3,7 +3,8 @@ from typing import Any
 
 from orchestrator.graph import run_prs_validation_with_callbacks
 from orchestrator.state import PRSState
-from services.database import async_session, update_request_status
+from services.database import async_session, create_approval, log_agent_run, update_request_status
+from services.run_context import new_run_id
 from services.ws_manager import ws_manager
 
 
@@ -55,7 +56,20 @@ def build_orchestrator_result(final_state: PRSState) -> dict[str, Any]:
 
 
 async def run_validation_job(request_id: str, payload: dict[str, Any]) -> None:
+    run_id = new_run_id()
+
     async def on_agent_complete(agent_name: str, result: dict[str, Any]) -> None:
+        async with async_session() as session:
+            await log_agent_run(
+                session,
+                run_id=run_id,
+                parent_ref=request_id,
+                agent_name=agent_name,
+                phase="prs",
+                status="completed",
+                result=result,
+                output_status=result.get("status"),
+            )
         await ws_manager.broadcast(
             request_id,
             {
@@ -75,6 +89,15 @@ async def run_validation_job(request_id: str, payload: dict[str, Any]) -> None:
 
         async with async_session() as session:
             await update_request_status(session, request_id, "complete", agent_results=result)
+            if result.get("requires_human_review"):
+                await create_approval(
+                    session,
+                    item_type="prs_submission",
+                    ref_id=f"PRS-APPROVE-{request_id}",
+                    title=f"PRS validation: {request_id} ({result.get('overall_status')})",
+                    payload={"request_id": request_id, "overall_status": result.get("overall_status")},
+                    agent_result=result,
+                )
 
         await ws_manager.broadcast(
             request_id,

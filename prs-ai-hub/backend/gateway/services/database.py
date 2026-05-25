@@ -51,6 +51,47 @@ class PRSRequest(Base):
     )
 
 
+class AgentRunLog(Base):
+    """Phase 0 — per-agent execution audit trail."""
+
+    __tablename__ = "agent_run_logs"
+
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    run_id: Mapped[str] = mapped_column(String(64), index=True)
+    parent_ref: Mapped[str] = mapped_column(String(80), index=True)
+    agent_name: Mapped[str] = mapped_column(String(64))
+    phase: Mapped[str] = mapped_column(String(32), default="prs")
+    status: Mapped[str] = mapped_column(String(20))
+    model_used: Mapped[str | None] = mapped_column(String(80), nullable=True)
+    latency_ms: Mapped[int | None] = mapped_column(nullable=True)
+    output_status: Mapped[str | None] = mapped_column(String(20), nullable=True)
+    result: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    error: Mapped[str | None] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)
+    )
+
+
+class ApprovalItem(Base):
+    """Phase 0 — human approval queue for supervised pilot."""
+
+    __tablename__ = "approval_queue"
+
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    item_type: Mapped[str] = mapped_column(String(40), index=True)
+    ref_id: Mapped[str] = mapped_column(String(80), unique=True, index=True)
+    title: Mapped[str] = mapped_column(String(200))
+    status: Mapped[str] = mapped_column(String(20), default="pending", index=True)
+    payload: Mapped[dict] = mapped_column(JSON)
+    agent_result: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    decided_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    decided_by: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    note: Mapped[str | None] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)
+    )
+
+
 async def init_db() -> None:
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
@@ -116,3 +157,102 @@ async def list_requests(
     total = len(rows)
     start = (page - 1) * limit
     return rows[start : start + limit], total
+
+
+async def log_agent_run(
+    session: AsyncSession,
+    *,
+    run_id: str,
+    parent_ref: str,
+    agent_name: str,
+    phase: str,
+    status: str,
+    result: dict | None = None,
+    output_status: str | None = None,
+    model_used: str | None = None,
+    latency_ms: int | None = None,
+    error: str | None = None,
+) -> AgentRunLog:
+    row = AgentRunLog(
+        run_id=run_id,
+        parent_ref=parent_ref,
+        agent_name=agent_name,
+        phase=phase,
+        status=status,
+        result=result,
+        output_status=output_status,
+        model_used=model_used,
+        latency_ms=latency_ms,
+        error=error,
+    )
+    session.add(row)
+    await session.commit()
+    await session.refresh(row)
+    return row
+
+
+async def list_run_logs(
+    session: AsyncSession, parent_ref: str | None = None, limit: int = 100
+) -> list[AgentRunLog]:
+    query = select(AgentRunLog).order_by(AgentRunLog.created_at.desc()).limit(limit)
+    if parent_ref:
+        query = query.where(AgentRunLog.parent_ref == parent_ref)
+    result = await session.execute(query)
+    return list(result.scalars().all())
+
+
+async def create_approval(
+    session: AsyncSession,
+    *,
+    item_type: str,
+    ref_id: str,
+    title: str,
+    payload: dict,
+    agent_result: dict | None = None,
+) -> ApprovalItem:
+    existing = await session.execute(select(ApprovalItem).where(ApprovalItem.ref_id == ref_id))
+    found = existing.scalar_one_or_none()
+    if found:
+        return found
+    row = ApprovalItem(
+        item_type=item_type,
+        ref_id=ref_id,
+        title=title,
+        payload=payload,
+        agent_result=agent_result,
+        status="pending",
+    )
+    session.add(row)
+    await session.commit()
+    await session.refresh(row)
+    return row
+
+
+async def list_approvals(
+    session: AsyncSession, status: str | None = "pending", limit: int = 50
+) -> list[ApprovalItem]:
+    query = select(ApprovalItem).order_by(ApprovalItem.created_at.desc()).limit(limit)
+    if status:
+        query = query.where(ApprovalItem.status == status)
+    result = await session.execute(query)
+    return list(result.scalars().all())
+
+
+async def decide_approval(
+    session: AsyncSession,
+    ref_id: str,
+    decision: str,
+    decided_by: str = "operator",
+    note: str | None = None,
+) -> ApprovalItem | None:
+    result = await session.execute(select(ApprovalItem).where(ApprovalItem.ref_id == ref_id))
+    row = result.scalar_one_or_none()
+    if not row:
+        return None
+    row.status = decision
+    row.decided_at = datetime.now(timezone.utc)
+    row.decided_by = decided_by
+    row.note = note
+    await session.commit()
+    await session.refresh(row)
+    return row

@@ -77,6 +77,42 @@ def get_transaction(transaction_id: str) -> dict | None:
     return None
 
 
+@lru_cache(maxsize=1)
+def load_intake_submissions() -> list[dict]:
+    data = _load_json("intake_submissions.json")
+    return data.get("records", [])
+
+
+@lru_cache(maxsize=1)
+def load_intake_validation_rules() -> list[dict]:
+    data = _load_json("intake_validation_rules.json")
+    return data.get("records", [])
+
+
+def intake_submission_key(row: dict) -> str:
+    return f"{row.get('supplier_id', '')}:{row.get('invoice_number', '')}"
+
+
+def get_intake_submission(submission_key: str) -> dict | None:
+    for row in load_intake_submissions():
+        if intake_submission_key(row) == submission_key:
+            return row
+    return None
+
+
+@lru_cache(maxsize=1)
+def load_supplier_messages() -> list[dict]:
+    data = _load_json("supplier_messages.json")
+    return data.get("records", [])
+
+
+def get_supplier_message(message_id: str) -> dict | None:
+    for msg in load_supplier_messages():
+        if msg.get("message_id") == message_id:
+            return msg
+    return None
+
+
 def resolve_contract_text(contract_number: str) -> tuple[str, str]:
     filename = CONTRACT_FILE_BY_NUMBER.get(contract_number)
     if not filename:
