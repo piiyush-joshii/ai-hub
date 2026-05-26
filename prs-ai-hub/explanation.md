@@ -81,7 +81,7 @@ Each agent is a small **FastAPI** service that calls **Groq** (`llama-3.3-70b-ve
 
 ### CCR flow (separate from PRS submit)
 
-**CCR** = “should this invoice be paid under this contract?” One row from `ccr_decision_input_may2026.xlsx` → gateway loads matching contract text → CCR agent on :8004 → decision JSON.
+**CCR** = “should this invoice be paid under this contract?” The source data is a **batch** of transactions from `ccr_decision_input_may2026.xlsx`, shown in the `/ccr` page. In the current MVP, the app evaluates **one selected row at a time**: the gateway loads the matching contract text, sends that single transaction to the CCR agent on `:8004`, and returns the decision JSON.
 
 ### Enterprise page
 
